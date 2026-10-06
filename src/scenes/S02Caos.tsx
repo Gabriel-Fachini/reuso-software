@@ -32,7 +32,7 @@ export default function S02Caos() {
           { scaleX: 1.15, scaleY: 0.85, duration: 0.14, ease: "power2.in" },
           { scaleX: 1, scaleY: 1, duration: 0.5, ease: "elastic.out(1, 0.5)" },
         ],
-        stagger: { each: 0.025, grid: [4, 15], from: "start" },
+        stagger: { each: 0.025, grid: [4, 15], from: "center" },
       },
       0.7,
     );
