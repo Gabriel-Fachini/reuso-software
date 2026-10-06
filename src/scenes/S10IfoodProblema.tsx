@@ -64,7 +64,7 @@ export default function S10IfoodProblema() {
         <div style={{ position: "relative" }}>
           <div className="statement soft rb1">Esse cenário aconteceu no</div>
           <div className="logo" style={{ marginTop: 50 }}>
-            <img className="logo-inner" src="/ifood-logo.svg" alt="iFood" style={{ width: 640, display: "block", margin: "0 auto" }} />
+            <img className="logo-inner" src={`${import.meta.env.BASE_URL}ifood-logo.svg`} alt="iFood" style={{ width: 640, display: "block", margin: "0 auto" }} />
           </div>
         </div>
       </div>

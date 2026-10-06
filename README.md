@@ -2,6 +2,8 @@
 
 Apresentação do seminário de **Reuso de Software**: 15 cenas em motion graphics (React + GSAP), palco fixo 1920×1080, roteiro em [`roteiro-seminario-design-system.md`](roteiro-seminario-design-system.md).
 
+**Ao vivo:** https://gabriel-fachini.github.io/reuso-software/ — atualizada automaticamente a cada commit na `main` (`.github/workflows/deploy.yml`).
+
 ## Design system
 
 Baseado no próprio gsap.com: paleta, os 7 gradientes nomeados (*macha*, *orange-crush*, *lipstick*, *purple-haze*, *skyfall*, *emerald-city*, *summer-fair*) e os easings foram extraídos das variáveis CSS do site (`src/styles/tokens.css`). Componentes: rótulos `{ entre chaves }`, palavras em blocos coloridos inclinados (`Mark`), botões em pílula com seta, granulado. As figuras com gradiente (`src/components/Shape.tsx`) são desenhos próprios usando os gradientes do site.

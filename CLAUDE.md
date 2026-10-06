@@ -93,6 +93,10 @@ Use os helpers de `src/engine/anim.ts`; não escreva entradas com `gsap.from/to`
 - Você viu os prints da(s) cena(s) alterada(s) e nada vaza, sobrepõe ou fica ilegível.
 - Cenas de fluxo continuam sem `step()`; cenas com passos continuam com o mesmo número de cliques, a menos que o pedido seja mudar isso.
 
+## Publicação
+
+Cada push na `main` dispara `.github/workflows/deploy.yml`: `check-ds` + `npm run build` e deploy no GitHub Pages (https://gabriel-fachini.github.io/reuso-software/). O build usa `base: "./"`; referencie arquivos de `public/` com `` `${import.meta.env.BASE_URL}arquivo` ``, nunca com `/arquivo`.
+
 ## Git
 
 - Uma branch por pessoa/cena: `cena/11-ifood`, `cena/12-genai`.
