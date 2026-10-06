@@ -1,0 +1,33 @@
+{
+  "name": "seminario-design-system",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173",
+    "export:mp4": "vite build && node scripts/export-mp4.mjs",
+    "typecheck": "tsc --noEmit",
+    "snap": "node scripts/snap.mjs",
+    "check:ds": "node scripts/check-ds.mjs",
+    "check:layout": "node scripts/check-layout.mjs",
+    "check": "tsc --noEmit && node scripts/check-ds.mjs && node scripts/check-layout.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter-tight": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.15.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "playwright": "^1.63.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2"
+  }
+}

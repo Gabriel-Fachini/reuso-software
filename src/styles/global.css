@@ -1,0 +1,411 @@
+@import "@fontsource-variable/inter-tight";
+@import "@fontsource-variable/jetbrains-mono";
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  background: #000;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* ---------- stage ---------- */
+
+.viewport {
+  position: fixed;
+  inset: 0;
+  background: #000;
+}
+
+.stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--stage-w);
+  height: var(--stage-h);
+  transform-origin: center;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  padding: 92px var(--gutter) 110px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* film grain over everything, like the textured fills on gsap.com */
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.hud-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background: var(--gradient-macha);
+  transform-origin: left center;
+  z-index: 50;
+}
+
+.hud-counter,
+.hud-title {
+  position: absolute;
+  bottom: 38px;
+  font: 600 var(--fs-label-sm) / 1 var(--font-sans);
+  letter-spacing: -0.01em;
+  color: var(--color-muted);
+  z-index: 50;
+}
+
+.hud-counter {
+  right: var(--gutter);
+  font-family: var(--font-mono);
+}
+
+.hud-counter b {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.hud-title {
+  left: var(--gutter);
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-muted);
+  font: 600 var(--fs-label) / 1 var(--font-mono);
+}
+
+/* ---------- typography (gsap.com: 600 / 0.9 / -0.02em for display) ---------- */
+
+.hero {
+  font-size: var(--fs-hero);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.display {
+  font-size: var(--fs-display);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+.h1 {
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.statement {
+  font-size: var(--fs-statement);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.h3 {
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.body-lg {
+  font-size: var(--fs-body-lg);
+  line-height: 1.35;
+}
+
+.body {
+  font-size: var(--fs-body);
+  line-height: 1.4;
+}
+
+.label {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+.soft {
+  color: var(--color-soft);
+}
+.orange {
+  color: var(--color-orangey);
+}
+.green {
+  color: var(--color-shockingly-green);
+}
+.pink {
+  color: var(--color-pink);
+}
+.lilac {
+  color: var(--color-lilac);
+}
+.blue {
+  color: var(--color-blue);
+}
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* gradient text, as on the gsap.com tool pages */
+.gt {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.08em;
+}
+.gt-macha {
+  background-image: var(--gradient-macha);
+}
+.gt-orange {
+  background-image: var(--gradient-orange-crush);
+}
+.gt-lipstick {
+  background-image: var(--gradient-lipstick);
+}
+.gt-purple {
+  background-image: var(--gradient-purple-haze);
+}
+.gt-summer {
+  background-image: var(--gradient-summer-fair);
+}
+.gt-text {
+  background-image: var(--gradient-text);
+}
+
+/* SplitText masks should not clip descenders */
+.split-line-mask {
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+/* ---------- components ---------- */
+
+/* { eyebrow } — curly-brace label from gsap.com */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  font: 600 var(--fs-label) / 1 var(--font-sans);
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.eyebrow .brace {
+  font-size: 2.3em;
+  font-weight: 200;
+  line-height: 0.8;
+  transform: translateY(-0.06em);
+  color: var(--color-primary);
+}
+
+/* tilted highlight block ("Animate Anything" / "That's right, Anything") */
+.mark {
+  display: inline-block;
+  padding: 0.02em 0.2em 0.08em;
+  border-radius: 8px;
+  color: var(--color-just-black);
+  background: var(--color-pink);
+  line-height: 1;
+}
+.mark.orange {
+  background: var(--color-orangey);
+  color: var(--color-just-black);
+}
+.mark.green {
+  background: var(--color-shockingly-green);
+  color: var(--color-just-black);
+}
+.mark.lilac {
+  background: var(--color-lilac);
+  color: var(--color-just-black);
+}
+.mark.blue {
+  background: var(--color-blue);
+  color: var(--color-just-black);
+}
+.mark.ivory {
+  background: var(--color-primary);
+  color: var(--color-just-black);
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  height: 62px;
+  padding: 0 14px 0 30px;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font: 600 var(--fs-label-lg) / 1 var(--font-sans);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.btn.plain {
+  padding: 0 30px;
+}
+
+.btn .arrow-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: grid;
+  place-items: center;
+}
+
+.btn.green {
+  border-color: var(--color-shockingly-green);
+  color: var(--color-primary);
+}
+
+.btn.orange {
+  border-color: var(--color-orangey);
+}
+
+/* filled button: gsap gradient + grain */
+.btn.fill {
+  border: none;
+  color: var(--color-just-black);
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.22'/></svg>"),
+    var(--gradient-macha);
+}
+.btn.fill.orange {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.22'/></svg>"),
+    var(--gradient-orange-crush);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-surface25);
+  background: transparent;
+  font: 600 var(--fs-label-sm) / 1 var(--font-sans);
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.card {
+  background: var(--color-off-black);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-surface25);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 21px;
+  line-height: 1.6;
+  background: var(--color-just-black);
+  border: 1px solid var(--color-surface25);
+  border-radius: var(--radius-md);
+  padding: 22px 26px;
+  white-space: pre;
+  color: var(--color-primary);
+}
+
+.code .k {
+  color: var(--color-lilac);
+}
+.code .s {
+  color: var(--color-lt-green);
+}
+.code .c {
+  color: var(--color-muted);
+}
+.code .o {
+  color: var(--color-orangey);
+}
+
+/* placeholder for data the group still has to provide */
+.dado {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border: 2px dashed var(--color-orangey);
+  border-radius: var(--radius-sm);
+  color: var(--color-orangey);
+  font: 600 0.7em / 1.2 var(--font-mono);
+  white-space: nowrap;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.grow {
+  flex: 1;
+}
+
+.abs {
+  position: absolute;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
