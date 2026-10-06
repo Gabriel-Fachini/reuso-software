@@ -4,7 +4,7 @@ import { useScene } from "../engine/useScene";
 import { exit, float, pop, reveal, rise, step } from "../engine/anim";
 import { Arrow, ArrowDot, Eyebrow, Mark } from "../components/ui";
 import { chaosPieces } from "../components/Chaos";
-import { Deco } from "../components/Shape";
+import { Deco, GradDef } from "../components/Shape";
 
 const prompts = ["gere a tela de checkout", "crie um botão de pedir", "faça o card de produto"];
 
@@ -94,6 +94,22 @@ export default function S12GenAI() {
     );
     rise(tl, ".left .verdict", "-=0.4");
     pop(tl, ".left .verdict .mark", "-=0.6");
+    // the lightning strikes down from the word: stretch on the way, flicker, settle
+    tl.fromTo(
+      ".bolt",
+      { autoAlpha: 0, scaleY: 0, transformOrigin: "50% 0%" },
+      {
+        keyframes: [
+          { autoAlpha: 1, scaleY: 1.18, scaleX: 0.86, duration: 0.2, ease: "power4.in" },
+          { autoAlpha: 0.25, duration: 0.05, ease: "steps(1)" },
+          { autoAlpha: 1, duration: 0.05, ease: "steps(1)" },
+          { autoAlpha: 0.25, duration: 0.05, ease: "steps(1)" },
+          { autoAlpha: 1, duration: 0.05, ease: "steps(1)" },
+          { scaleY: 1, scaleX: 1, duration: 0.6, ease: "elastic.out(1, 0.4)" },
+        ],
+      },
+      "-=0.3",
+    );
     step(tl);
 
     rise(tl, ".right .side-title");
@@ -105,6 +121,10 @@ export default function S12GenAI() {
     rise(tl, ".right .verdict", "-=0.4");
     pop(tl, ".right .verdict .mark", "-=0.6");
 
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 2.2, delay: 1 })
+      .to(".bolt-inner", { opacity: 0.3, duration: 0.06, repeat: 3, yoyo: true, ease: "steps(1)" })
+      .to(".bolt-inner", { scaleX: 1.08, scaleY: 0.94, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", transformOrigin: "50% 0%" }, 0);
     float(".agent-inner", 10, 8);
     float(".a-deco .deco-inner", 12, 10);
   });
@@ -152,7 +172,17 @@ export default function S12GenAI() {
               </div>
             ))}
             <p className="verdict body-lg">
-              O produto vira um <Mark color="orange" tilt={1}>Frankenstein</Mark>.
+              O produto vira um{" "}
+              <span style={{ position: "relative", display: "inline-block" }}>
+                <Mark color="orange" tilt={1}>Frankenstein</Mark>
+                <span className="bolt abs" style={{ left: "50%", top: "100%", marginLeft: -40, marginTop: 4 }}>
+                  <svg className="bolt-inner" width={80} height={140} viewBox="0 0 60 105" style={{ display: "block", overflow: "visible" }}>
+                    <GradDef name="tangerine" id="bolt-g" w={60} h={105} />
+                    <path d="M38 0 L6 60 H28 L16 105 L56 40 H34 L48 0 Z" fill="url(#bolt-g)" stroke="url(#bolt-g)" strokeWidth={3} strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </span>
+              .
             </p>
           </div>
 

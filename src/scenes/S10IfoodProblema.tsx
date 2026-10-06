@@ -1,6 +1,6 @@
 import { gsap } from "../engine/gsap";
 import { useScene } from "../engine/useScene";
-import { breathe, drop, exit, float, pop, reveal, rise, step } from "../engine/anim";
+import { breathe, drift, drop, exit, pop, reveal, rise, step } from "../engine/anim";
 import { Dado, Eyebrow, Mark } from "../components/ui";
 import { Chaos } from "../components/Chaos";
 import { Deco } from "../components/Shape";
@@ -35,10 +35,11 @@ export default function S10IfoodProblema() {
     rise(tl, ".insight", "-=0.4");
     pop(tl, ".insight .mark", "-=0.6");
 
-    float(".echo .chaos-inner", 6, 2);
-    float(".b-deco .deco-inner", 12, 10);
+    drift(".echo .chaos-inner", 14, 4);
+    drift(".b-deco .deco-inner", 34, 14);
+    drift(".venn-shape", 14, 3);
     breathe(".venn-shape", 0.03);
-    gsap.to(".logo-inner", { yPercent: -4, duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: -1 });
+    gsap.to(".logo-inner", { y: -22, rotation: -1.5, duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: -1 });
   });
 
   return (

@@ -247,6 +247,27 @@ export function float(targets: gsap.TweenTarget, amount = 14, rotate = 6) {
   });
 }
 
+/**
+ * Secondary action measured in pixels: a clearly visible float for UI pieces
+ * and shapes (float() uses % of the element, which is tiny on small chips).
+ */
+export function drift(targets: gsap.TweenTarget, px = 20, rotate = 4) {
+  gsap.utils.toArray<Element>(targets).forEach((el) => {
+    const r = gsap.utils.random;
+    const sign = () => (Math.random() < 0.5 ? -1 : 1);
+    gsap.to(el, {
+      y: sign() * r(px * 0.6, px),
+      x: sign() * r(px * 0.2, px * 0.5),
+      rotation: rotate ? sign() * r(rotate * 0.4, rotate) : 0,
+      duration: r(2.4, 3.8),
+      ease: "sine.inOut",
+      yoyo: true,
+      repeat: -1,
+      delay: r(0, 0.8),
+    });
+  });
+}
+
 /** Secondary action: slow continuous spin. */
 export function spin(targets: gsap.TweenTarget, duration = 14, direction: 1 | -1 = 1) {
   gsap.to(targets, { rotation: 360 * direction, duration, ease: "none", repeat: -1 });

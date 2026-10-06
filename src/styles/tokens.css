@@ -63,6 +63,7 @@
   /* deck-specific */
   --gradient-ink: linear-gradient(160deg, #2a2c29, #0b0c0b);
   --gradient-spectrum: linear-gradient(90deg, #0ae448, #abff84 30%, #f7bdf8 70%, #ff8709);
+  --gradient-silver: linear-gradient(180deg, #7c7c6f 0%, #fffce1 30%, #bbbaa6 55%, #7c7c6f 80%, #bbbaa6 100%);
 
   /* --- easing (gsap.com) --- */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);

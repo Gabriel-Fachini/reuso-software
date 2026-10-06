@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { gsap } from "../engine/gsap";
 import { useScene } from "../engine/useScene";
-import { drawIn, drop, float, pop, reveal, rise } from "../engine/anim";
+import { drawIn, drift, drop, float, pop, reveal, rise } from "../engine/anim";
 import { ArrowDot, Eyebrow, Mark } from "../components/ui";
 
 function Flow({ side, code, box, out }: { side: "bb" | "wb"; code: ReactNode; box: ReactNode; out: ReactNode }) {
@@ -35,14 +35,16 @@ function Flow({ side, code, box, out }: { side: "bb" | "wb"; code: ReactNode; bo
           background: side === "bb" ? "var(--gradient-orange-crush)" : "var(--gradient-macha)",
         }}
       />
-      <div className="code-card abs code" style={{ left: 0, top: 30, width: 260, fontSize: 17, padding: "16px 18px" }}>
-        {code}
+      <div className="code-card abs" style={{ left: 0, top: 30 }}>
+        <div className="code-inner code" style={{ width: 260, fontSize: 17, padding: "16px 18px" }}>
+          {code}
+        </div>
       </div>
       <div className="box abs" style={{ left: 350, top: 15, width: 170, height: 170 }}>
         {box}
       </div>
       <div className="out abs" style={{ left: 612, top: 69 }}>
-        {out}
+        <div className="out-inner">{out}</div>
       </div>
     </div>
   );
@@ -83,7 +85,8 @@ export default function S05Caixas() {
     tl.from(".spectrum .marker", { left: "50%", duration: 1.6, ease: "elastic.out(1, 0.45)", stagger: 0.2 }, 6.1);
 
     gsap.to(".gear", { rotation: (i: number) => (i % 2 ? -360 : 360), duration: 5, ease: "none", repeat: -1 });
-    float(".bb .box-inner, .wb .box-inner", 3, 2);
+    drift(".bb .code-inner, .bb .box-inner, .bb .out-inner", 12, 2);
+    float(".wb .box-inner", 3, 2);
   });
 
   return (
@@ -148,7 +151,7 @@ export default function S05Caixas() {
                 {" Promo =\n  extend("}
                 <span className="k">Button</span>
                 {", {\n    icon: "}
-                <span className="s">"flame"</span>
+                <span className="s">"star"</span>
                 {"\n  })"}
               </>
             }

@@ -48,17 +48,38 @@ export default function S13GenAIPratica() {
     rise(tl, ".pc-2 .note", "-=0.5");
     step(tl);
 
-    // 03 lint
+    // 03 lint — the card and its text enter once; the lint demo inside loops
+    // on its own timeline (restarted here so it begins from the top)
+    const lint = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
+    lint
+      .set(".bad", { autoAlpha: 1, x: 0, y: 0 })
+      .set(".good, .fixed", { autoAlpha: 0 })
+      .set(".squiggle", { scaleX: 0, transformOrigin: "left" })
+      .set(".lint-err", { autoAlpha: 0, y: -10 })
+      .to(".squiggle", { scaleX: 1, duration: 0.6, ease: "power2.inOut" }, 0.6)
+      .to(".lint-err", { autoAlpha: 1, y: 0, duration: 0.5, ease: "expo.out" }, 1.2)
+      .to(".bad", { x: 6, duration: 0.06, repeat: 5, yoyo: true, ease: "none" }, 1.9)
+      .to(".bad", { autoAlpha: 0, y: -14, duration: 0.35, ease: "power2.in" }, 2.5)
+      .to(".lint-err", { autoAlpha: 0, duration: 0.3 }, 2.5)
+      .fromTo(".good", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "expo.out", immediateRender: false }, 2.75)
+      .fromTo(
+        ".fixed",
+        { autoAlpha: 0, scale: 0 },
+        {
+          keyframes: [
+            { autoAlpha: 1, scaleX: 0.75, scaleY: 1.25, duration: 0.22, ease: "power2.out" },
+            { scaleX: 1, scaleY: 1, duration: 0.6, ease: "elastic.out(1, 0.5)" },
+          ],
+          immediateRender: false,
+        },
+        2.95,
+      )
+      .to(".good, .fixed", { autoAlpha: 0, duration: 0.4, ease: "power2.in" }, 5.6);
+
     arcIn(tl, ".pc-3", undefined, { x: -120, y: 100, rotation: -4 });
+    tl.call(() => lint.restart(), [], "<0.05");
     pop(tl, ".pc-3 .icon", "-=0.9");
-    tl.from(".squiggle", { scaleX: 0, transformOrigin: "left", duration: 0.6, ease: "power2.inOut" }, "-=0.3");
-    tl.from(".lint-err", { autoAlpha: 0, y: -10, duration: 0.5 });
-    tl.to(".bad", { x: 6, duration: 0.06, repeat: 5, yoyo: true, ease: "none" }, "+=0.3");
-    tl.to(".bad", { autoAlpha: 0, height: 0, duration: 0.4, ease: "power2.in" }, "+=0.4");
-    tl.to(".lint-err", { autoAlpha: 0, height: 0, marginTop: 0, duration: 0.3 }, "<");
-    tl.from(".good", { autoAlpha: 0, y: 12, duration: 0.6 });
-    pop(tl, ".fixed", "-=0.2");
-    rise(tl, ".pc-3 .note", "-=0.5");
+    rise(tl, ".pc-3 .note", "-=0.6");
     step(tl);
 
     tl.to(".cards", { autoAlpha: 0.06, scale: 0.97, duration: 0.8, ease: "power2.inOut" });
@@ -117,16 +138,20 @@ export default function S13GenAIPratica() {
         </Card>
 
         <Card n={3} title="Lint de tokens" shape="circle" grad="core">
+          {/* bad and good share one line and the error/chip keep their space,
+              so the looping demo never shifts the card layout */}
           <div className="code" style={{ fontSize: 19, padding: "18px 22px" }}>
             <div>.cta {"{"}</div>
-            <div className="bad" style={{ position: "relative", width: "fit-content" }}>
-              {"  color: "}
-              <span style={{ color: "var(--color-error)" }}>#ff6a00</span>; {/* ds-allow: texto do exemplo de lint */}
-              <div className="squiggle abs" style={{ left: 100, right: 10, bottom: -2, height: 3, background: "var(--color-error)", borderRadius: 2 }} />
-            </div>
-            <div className="good">
-              {"  color: "}
-              <span className="s">var(--color-brand)</span>;
+            <div style={{ position: "relative" }}>
+              <div className="bad" style={{ position: "relative", width: "fit-content" }}>
+                {"  color: "}
+                <span style={{ color: "var(--color-error)" }}>#ff6a00</span>; {/* ds-allow: texto do exemplo de lint */}
+                <div className="squiggle abs" style={{ left: 100, right: 10, bottom: -2, height: 3, background: "var(--color-error)", borderRadius: 2 }} />
+              </div>
+              <div className="good abs" style={{ left: 0, top: 0 }}>
+                {"  color: "}
+                <span className="s">var(--color-brand)</span>;
+              </div>
             </div>
             <div>{"}"}</div>
             <div className="lint-err" style={{ marginTop: 12, color: "var(--color-error)", fontSize: 16, whiteSpace: "normal" }}>
@@ -141,8 +166,8 @@ export default function S13GenAIPratica() {
       </div>
 
       <div className="message abs center" style={{ inset: 0, textAlign: "center" }}>
-        <Deco className="m-deco" x={240} y={260} kind="star" grad="tangerine" size={100} />
-        <Deco className="m-deco" x={1580} y={720} kind="flower" grad="core" size={150} />
+        <Deco className="m-deco" x={1600} y={230} kind="star" grad="tangerine" size={100} />
+        <Deco className="m-deco" x={190} y={700} kind="flower" grad="core" size={150} />
         <div style={{ position: "relative", maxWidth: 1680 }}>
           <div className="statement m1" style={{ fontSize: 80 }}>O reuso deixa de ser só entre pessoas</div>
           <div className="statement m2" style={{ fontSize: 80, marginTop: 16 }}>

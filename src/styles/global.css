@@ -216,9 +216,14 @@ body,
 }
 
 /* SplitText masks should not clip descenders */
+/* Room around each masked line so tilted <Mark> blocks (taller than the
+   line box) are not clipped. The extra top room is paid back with a
+   translate, not a negative top margin: stacked lines' margins would
+   collapse and push every line down. */
 .split-line-mask {
-  padding-bottom: 0.14em;
-  margin-bottom: -0.14em;
+  padding: 0.3em 0.12em 0.14em;
+  margin: 0 -0.12em -0.44em;
+  translate: 0 -0.3em;
 }
 
 /* ---------- components ---------- */

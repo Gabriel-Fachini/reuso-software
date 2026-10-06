@@ -27,6 +27,8 @@ export const GRADS = {
   ui: { type: "radial", cx: 0.717, cy: 0.308, r: 0.79, stops: [["#f0fcff", 0], ["#9bedff", 0.672], ["#5be1ff", 0.849], ["#00bae2", 0.948]] },
   text: { type: "radial", cx: 1.2, cy: 0.81, r: 1.29, stops: [["#dfdcff", 0.27], ["#a69eff", 1]] },
   ink: { type: "linear", angle: 160, stops: [["#2a2c29", 0], ["#121412", 1]] },
+  // metal (silver bullet), built from the surface greys
+  silver: { type: "linear", angle: 180, stops: [["#7c7c6f", 0], ["#fffce1", 0.3], ["#bbbaa6", 0.55], ["#7c7c6f", 0.8], ["#bbbaa6", 1]] },
 } satisfies Record<string, Grad>;
 
 export type GradName = keyof typeof GRADS;

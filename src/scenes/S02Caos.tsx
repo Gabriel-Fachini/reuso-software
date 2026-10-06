@@ -1,6 +1,6 @@
 import { gsap } from "../engine/gsap";
 import { useScene } from "../engine/useScene";
-import { beat, countTo, exit, float, pop, reveal, rise } from "../engine/anim";
+import { beat, countTo, drift, exit, pop, reveal, rise } from "../engine/anim";
 import { Eyebrow, Mark } from "../components/ui";
 import { Chaos } from "../components/Chaos";
 import { Deco } from "../components/Shape";
@@ -70,8 +70,9 @@ export default function S02Caos() {
     pop(tl, ".q2 .mark", "-=0.6");
     pop(tl, ".q-deco", "-=0.8", { stagger: 0.1 });
 
-    float(".chaos-inner", 8, 3);
-    float(".q-deco .deco-inner", 10, 8);
+    drift(".squad-inner", 7, 0);
+    drift(".chaos-inner", 16, 4);
+    drift(".q-deco .deco-inner", 30, 10);
   });
 
   return (
@@ -89,11 +90,9 @@ export default function S02Caos() {
       <div className="row" style={{ marginTop: 80, gap: 90, alignItems: "flex-start" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(15, 40px)", gap: 18 }}>
           {Array.from({ length: SQUADS }, (_, i) => (
-            <div
-              key={i}
-              className="squad"
-              style={{ width: 40, height: 40, borderRadius: "50%", background: tribe[i % tribe.length] }}
-            />
+            <div key={i} className="squad" style={{ width: 40, height: 40 }}>
+              <div className="squad-inner" style={{ width: 40, height: 40, borderRadius: "50%", background: tribe[i % tribe.length] }} />
+            </div>
           ))}
         </div>
         <div className="col" style={{ gap: 22 }}>

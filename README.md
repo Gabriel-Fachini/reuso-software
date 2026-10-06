@@ -89,7 +89,7 @@ Para editar uma cena: abra `src/scenes/SNN*.tsx`. A animação fica no `useScene
 ## Pendências do grupo
 
 - **Dados do case iFood** (cenas 10 e 11): procurar por `<Dado>` e substituir pelos números reais (sem informação confidencial).
-- **PIN do Kahoot** (cena 15): substituir `[PIN do jogo]`.
+- **PIN e QR code do Kahoot** (cena 15): substituir `[PIN do jogo]` e o QR de placeholder (`QrPlaceholder` em `S15Fechamento.tsx`) pelo QR real do jogo.
 - **Fonte Mori**: é comercial. Se estiver instalada no computador da apresentação, é usada automaticamente; senão a apresentação usa Inter Tight.
 
-O logo do iFood (cena 10) é `public/ifood-logo.svg`, do Wikimedia Commons (domínio público).
+Os logos do iFood (cena 10, `public/ifood-logo.svg`) e do Kahoot (cena 15, `public/kahoot-logo.svg`) vêm do Wikimedia Commons (domínio público; marcas registradas dos donos).

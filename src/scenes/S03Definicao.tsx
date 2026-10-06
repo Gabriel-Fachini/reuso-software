@@ -1,10 +1,20 @@
 import { gsap } from "../engine/gsap";
 import { useScene } from "../engine/useScene";
-import { breathe, drawIn, float, pop, reveal, rise } from "../engine/anim";
+import { breathe, drawIn, drift, pop, reveal, rise } from "../engine/anim";
 import { Eyebrow, Mark } from "../components/ui";
 import { Deco, GradDef } from "../components/Shape";
 
 const C = 380; // diagram center (760 x 760)
+
+// satellites riding each ring (angles in degrees, 0 = top)
+const sats = {
+  mid: { r: 225, angles: [40, 160, 280], fill: "var(--color-pink)" },
+  out: { r: 345, angles: [100, 210, 330], fill: "var(--color-lt-green)" },
+};
+const polar = (r: number, deg: number) => {
+  const a = ((deg - 90) * Math.PI) / 180;
+  return { cx: C + r * Math.cos(a), cy: C + r * Math.sin(a) };
+};
 
 const legend = [
   { name: "Style guide", desc: "regras visuais: cores, tipografia, tom de voz", bg: "var(--gradient-orange-crush)" },
@@ -30,12 +40,33 @@ export default function S03Definicao() {
     pop(tl, ".def .mark", 2.6, { stagger: 0.08 });
     rise(tl, ".refs", 3.1);
     pop(tl, ".s-deco", 1.2, { stagger: 0.15 });
+    pop(tl, ".sat-mid", 2.2, { stagger: 0.1, transformOrigin: "50% 50%" });
+    pop(tl, ".sat-out", 3.0, { stagger: 0.1, transformOrigin: "50% 50%" });
 
-    // secondary action: gradients orbit, the core breathes
+    // secondary action: gradients and satellites orbit, the core breathes and
+    // sends ripples out through the layers (the single source of truth)
     gsap.to(".ring-mid", { rotation: 360, svgOrigin: `${C} ${C}`, duration: 18, ease: "none", repeat: -1 });
     gsap.to(".ring-out", { rotation: -360, svgOrigin: `${C} ${C}`, duration: 26, ease: "none", repeat: -1 });
-    breathe(".inner-shape", 0.04);
-    float(".s-deco .deco-inner", 12, 10);
+    gsap.to(".orbit-mid", { rotation: 360, svgOrigin: `${C} ${C}`, duration: 14, ease: "none", repeat: -1 });
+    gsap.to(".orbit-out", { rotation: -360, svgOrigin: `${C} ${C}`, duration: 22, ease: "none", repeat: -1 });
+    gsap.set(".ripple", { autoAlpha: 0 });
+    gsap.fromTo(
+      ".ripple",
+      { scale: 1, autoAlpha: 0.8 },
+      {
+        scale: 2.8,
+        autoAlpha: 0,
+        svgOrigin: `${C} ${C}`,
+        duration: 3.4,
+        ease: "power2.out",
+        delay: 1.6,
+        stagger: { each: 1.7, repeat: -1 },
+        immediateRender: false,
+      },
+    );
+    breathe(".inner-shape", 0.06);
+    drift(".badge-mid .chip, .badge-out .chip", 8, 2);
+    drift(".s-deco .deco-inner", 26, 12);
   });
 
   return (
@@ -77,6 +108,24 @@ export default function S03Definicao() {
             <GradDef name="macha" id="ring-out-g" w={760} h={760} />
             <circle className="ring-out" cx={C} cy={C} r={345} fill="none" stroke="url(#ring-out-g)" strokeWidth={30} strokeLinecap="round" transform={`rotate(-90 ${C} ${C})`} />
             <circle className="ring-mid" cx={C} cy={C} r={225} fill="none" stroke="url(#ring-mid-g)" strokeWidth={30} strokeLinecap="round" transform={`rotate(-90 ${C} ${C})`} />
+            {[0, 1].map((i) => (
+              <circle key={i} className="ripple" cx={C} cy={C} r={125} fill="none" stroke="var(--color-orangey)" strokeWidth={3} vectorEffect="non-scaling-stroke" />
+            ))}
+            {(["mid", "out"] as const).map((k) => (
+              <g key={k} className={`orbit-${k}`}>
+                {sats[k].angles.map((deg) => (
+                  <circle
+                    key={deg}
+                    className={`sat-${k}`}
+                    {...polar(sats[k].r, deg)}
+                    r={13}
+                    fill={sats[k].fill}
+                    stroke="var(--color-just-black)"
+                    strokeWidth={6}
+                  />
+                ))}
+              </g>
+            ))}
           </svg>
 
           <div className="inner abs" style={{ left: C - 125, top: C - 125 }}>

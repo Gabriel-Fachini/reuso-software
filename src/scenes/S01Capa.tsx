@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { gsap } from "../engine/gsap";
 import { useScene } from "../engine/useScene";
-import { arcIn, breathe, float, pop, reveal, revealChars, rise, spin } from "../engine/anim";
+import { arcIn, breathe, drift, pop, reveal, revealChars, rise, spin } from "../engine/anim";
 import { ArrowDot, Eyebrow, Mark } from "../components/ui";
 import { Deco } from "../components/Shape";
 
@@ -115,11 +115,10 @@ export default function S01Capa() {
     // UI pieces arrive on arcs and squash into place, overlapping each other
     arcIn(tl, ".ui-piece", 0.5, { x: 220, y: 120, rotation: 8 }, { stagger: { each: 0.09, from: "random" } });
     pop(tl, ".d-pin, .d-ring, .d-flower, .d-star", 0.9, { stagger: 0.14 });
-    tl.from(".d-squiggle", { scale: 0, rotation: -40, duration: 1.2, ease: "back.out(2)" }, 1.2);
 
     // secondary action
-    float(".ui-inner", 7, 3);
-    float(".deco-inner", 10, 6);
+    drift(".ui-inner", 22, 4);
+    drift(".deco-inner", 30, 10);
     spin(".d-pin .shape", 16);
     spin(".d-star .shape", 22, -1);
     breathe(".swatch", 0.06);
@@ -139,7 +138,6 @@ export default function S01Capa() {
       <Deco className="d-ring" x={1810} y={430} kind="ring" grad="summer" size={90} />
       <Deco className="d-flower" x={1660} y={790} kind="flower" grad="purple" size={160} />
       <Deco className="d-star" x={1130} y={800} kind="star" grad="tangerine" size={80} />
-      <Deco className="d-squiggle" x={700} y={470} kind="squiggle" grad="purple" size={170} />
 
       <div style={{ position: "relative" }}>
         <Eyebrow>Seminário · Reuso de Software</Eyebrow>

@@ -54,12 +54,12 @@ O hook pós-edição já roda `tsc` e `check-ds` automaticamente a cada arquivo 
 Tudo vem de `src/styles/tokens.css`. **Nunca** escreva cor, gradiente ou fonte literal em cena: use os tokens. Para tweens de cor no GSAP, use `cssVar("--color-…")` de `src/engine/tokens.ts`.
 
 - **Cores:** `--color-just-black` (fundo), `--color-surface-white` (texto), `--color-surface75/50/25` (texto suave / muted / bordas), `--color-off-black` (cards), acentos `--color-shockingly-green`, `--color-orangey`, `--color-pink`, `--color-shockingly-pink`, `--color-lilac`, `--color-blue`.
-- **Gradientes:** `--gradient-macha`, `-orange-crush`, `-lipstick`, `-purple-haze`, `-skyfall`, `-emerald-city`, `-summer-fair`, `-text`, `-scroll`, e os radiais de volume `-core`, `-tangerine`, `-ui`.
+- **Gradientes:** `--gradient-macha`, `-orange-crush`, `-lipstick`, `-purple-haze`, `-skyfall`, `-emerald-city`, `-summer-fair`, `-text`, `-scroll`, os radiais de volume `-core`, `-tangerine`, `-ui`, e `-silver` (metal, bala de prata).
 - **Tipografia:** classes `.hero`, `.display`, `.h1` (peso 600, linhas coladas), `.statement` (peso 400), `.h2`, `.h3`, `.body-lg`, `.body`, `.label`; cores `.soft`, `.muted`; texto em gradiente `.gt .gt-macha` etc.
 - **Componentes** (`src/components/`):
   - `<Eyebrow>` — rótulo `{ entre chaves }` no topo de toda cena (`{NN · Nome do bloco}`).
   - `<Mark color tilt>` — palavra-chave em bloco colorido inclinado. Use 1–2 por slide, não mais.
-  - `<Shape kind grad size>` / `<Deco x y …>` — figuras com gradiente. `kind`: circle, dome, flower, pinwheel, ring, squircle, diamond, star, arch, hourglass, pill, squiggle, arc. `grad`: macha, orange, lipstick, purple, skyfall, emerald, summer, scroll, core, tangerine, ui, text, ink.
+  - `<Shape kind grad size>` / `<Deco x y …>` — figuras com gradiente. `kind`: circle, dome, flower, pinwheel, ring, squircle, diamond, star, arch, hourglass, pill, squiggle, arc. `grad`: macha, orange, lipstick, purple, skyfall, emerald, summer, scroll, core, tangerine, ui, text, ink, silver.
   - `<ArrowDot>` dentro de `.btn` (pílula com seta); `.btn.fill` (gradiente + granulado); `.chip`; `.card`; `.code` (com `.k .s .o .c` para sintaxe); `<Dado>` para dados pendentes.
 - **Layout:** margem lateral 120px; conteúdo útil entre y=92 e y≈1000 (o rodapé/HUD fica abaixo). Dê medidas explícitas a tudo que fica dentro de card. Visual chapado: sem sombras nem blur.
 - A capa (cena 1) mistura elementos de UI do DS (botões, chips, swatches, card, toggle, "Aa") com algumas formas com gradiente — esse é o estilo aprovado.
@@ -70,9 +70,11 @@ Use os helpers de `src/engine/anim.ts`; não escreva entradas com `gsap.from/to`
 
 - Entradas: `reveal` (títulos, palavra a palavra), `revealChars` (hero), `rise` (blocos), `pop` (squash & stretch), `drop` (gravidade), `arcIn` (entra em arco), `drawIn` (linhas SVG).
 - Saídas dentro da cena: `exit` (antecipação + saída). Pausas de leitura em cenas de fluxo: `beat(tl, s)`.
-- Loops (ação secundária): `float`, `spin`, `breathe` — sempre em um elemento **interno** (`.deco-inner`, `*-inner`, `.shape`), nunca no mesmo elemento animado pela entrada (os transforms brigam).
+- Loops (ação secundária): `drift` (flutuação em px, bem visível; use para peças de UI e formas), `float` (sutil, em % do elemento), `spin`, `breathe` — sempre em um elemento **interno** (`.deco-inner`, `*-inner`, `.shape`), nunca no mesmo elemento animado pela entrada (os transforms brigam).
 - Use posições absolutas no timeline (`rise(tl, ".x", 1.2)`) para sobrepor ações; evite tudo em sequência rígida.
 - Timelines em loop (`repeat: -1`) com `fromTo` precisam de `immediateRender: false`, senão o estado inicial é aplicado na hora e esconde/desloca elementos.
+- Em loops que começam com a camada ainda oculta, anime `opacity`, não `autoAlpha`: o GSAP lê a `visibility: hidden` herdada como 0 e o elemento fica invisível para sempre.
+- Destaques `<Mark>` dentro de `reveal()` não são cortados: a máscara de linha (`.split-line-mask`) já tem folga em cima.
 - Escreva a cena com `useScene((tl) => { … })` e componentes com `className` para os seletores (o escopo é a própria cena).
 
 ## Conteúdo
