@@ -16,7 +16,7 @@ function Flow({ side, code, box, out }: { side: "bb" | "wb"; code: ReactNode; bo
             key={a}
             className="flow-arrow"
             d={`M${a} 100 H${b} M${b - 12} 90 L${b} 100 L${b - 12} 110`}
-            stroke="var(--color-surface50)"
+            stroke="var(--color-muted)"
             strokeWidth={3}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -122,10 +122,10 @@ export default function S05Caixas() {
                   height: "100%",
                   borderRadius: 36,
                   background: "var(--gradient-ink)",
-                  border: "1px solid var(--color-surface25)",
+                  border: "1px solid var(--color-border)",
                 }}
               >
-                <span style={{ fontSize: 72, fontWeight: 600, color: "var(--color-surface50)" }}>?</span>
+                <span style={{ fontSize: 72, fontWeight: 600, color: "var(--color-muted)" }}>?</span>
               </div>
             }
             out={
@@ -201,7 +201,7 @@ export default function S05Caixas() {
             { left: "78%", text: "caixa-branca" },
           ].map((m) => (
             <div key={m.text} className="marker abs" style={{ left: m.left, top: -14, translate: "-50% 0" }}>
-              <div style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--color-just-black)", border: "5px solid var(--color-primary)", margin: "0 auto" }} />
+              <div style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--color-bg)", border: "5px solid var(--color-primary)", margin: "0 auto" }} />
               <div className="label" style={{ marginTop: 14, fontSize: 20, whiteSpace: "nowrap" }}>{m.text}</div>
             </div>
           ))}

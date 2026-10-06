@@ -26,7 +26,7 @@ export const ifoodSolucao = defineTransition({
     if (b) tl.to(b, { x: `+=${m.cx - bb.cx}`, duration: 0.55, ease: "back.in(1.4)" }, 0.15);
 
     const disc = panel(layer, { cx: m.cx, cy: m.cy, w: ba.w, h: ba.w }, "var(--gradient-lipstick)", ba.w / 2);
-    const card = inside(disc, { background: "var(--color-off-black)", opacity: "0" });
+    const card = inside(disc, { background: "var(--color-surface)", opacity: "0" });
     tl.set(disc, { autoAlpha: 1 }, 0.7);
     tl.set([a, b].filter(Boolean), { autoAlpha: 0 }, 0.7);
     tl.fromTo(disc, { scaleX: 1.35, scaleY: 0.7 }, { scaleX: 1, scaleY: 1, duration: 0.4, ease: "back.out(2.5)" }, 0.7);

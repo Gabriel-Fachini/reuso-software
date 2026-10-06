@@ -31,7 +31,7 @@ export const linhasTokens = defineTransition({
     text.innerHTML =
       '<span style="font-size:16px;font-weight:600;letter-spacing:0.04em;opacity:0.7">NÚCLEO COMUM</span>' +
       '<span style="font-size:30px;font-weight:600;line-height:1.1;margin-top:8px">tokens + componentes</span>';
-    const code = inside(blk, { background: "var(--color-just-black)", border: "1px solid var(--color-surface25)", opacity: "0" });
+    const code = inside(blk, { background: "var(--color-bg)", border: "1px solid var(--color-border)", opacity: "0" });
     tl.set(blk, { autoAlpha: 1 }, 0.95);
     if (coreEl) tl.set(coreEl, { autoAlpha: 0 }, 0.95);
     return { blk, text, code };

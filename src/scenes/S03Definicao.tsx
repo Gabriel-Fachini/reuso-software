@@ -120,7 +120,7 @@ export default function S03Definicao() {
                     {...polar(sats[k].r, deg)}
                     r={13}
                     fill={sats[k].fill}
-                    stroke="var(--color-just-black)"
+                    stroke="var(--color-bg)"
                     strokeWidth={6}
                   />
                 ))}
@@ -135,12 +135,12 @@ export default function S03Definicao() {
           </div>
 
           <div className="badge-mid abs" style={{ left: C, top: C - 225, translate: "-50% -50%" }}>
-            <span className="chip" style={{ background: "var(--color-just-black)", borderColor: "var(--color-lilac-soft)", fontSize: 20 }}>
+            <span className="chip" style={{ background: "var(--color-bg)", borderColor: "var(--color-lilac-soft)", fontSize: 20 }}>
               Biblioteca de componentes
             </span>
           </div>
           <div className="badge-out abs" style={{ left: C, top: C - 345, translate: "-50% -50%" }}>
-            <span className="chip" style={{ background: "var(--color-just-black)", borderColor: "var(--color-shockingly-green)", fontSize: 22 }}>
+            <span className="chip" style={{ background: "var(--color-bg)", borderColor: "var(--color-shockingly-green)", fontSize: 22 }}>
               Design System
             </span>
           </div>

@@ -22,7 +22,7 @@ export const genaiPratica = defineTransition({
     const h = scene.querySelector(".harness");
     const hb = h ? box(h) : { cx: 1400, cy: 600, w: 196, h: 330 };
     const frame = panel(layer, hb, "var(--gradient-macha)", 22);
-    const fill = inside(frame, { inset: "3px", borderRadius: "19px", background: "var(--color-just-black)" });
+    const fill = inside(frame, { inset: "3px", borderRadius: "19px", background: "var(--color-bg)" });
     tl.set(frame, { autoAlpha: 1 }, 0.55);
     if (h) tl.set(h, { autoAlpha: 0 }, 0.55);
     tl.to(frame, { x: 960, y: 560, duration: 0.5, ease: "power3.inOut" }, 0.5);
@@ -39,7 +39,7 @@ export const genaiPratica = defineTransition({
     const nat = takeOver(ctx, card);
     gsap.set(card, { autoAlpha: 0 });
     morphTo(tl, frame, nat, 0, { duration: 0.7, radius: 24, ease: "power3.inOut" });
-    tl.to(fill, { inset: "0px", borderRadius: "24px", background: "var(--color-off-black)", duration: 0.45 }, 0.25);
+    tl.to(fill, { inset: "0px", borderRadius: "24px", background: "var(--color-surface)", duration: 0.45 }, 0.25);
     swap(tl, frame, card, 0.7, 0.2);
     tl.call(() => void ctx.tl.play(0), [], 0);
   },

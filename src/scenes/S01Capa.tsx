@@ -79,11 +79,11 @@ const ui: { x: number; y: number; el: ReactNode }[] = [
           width: 310,
           height: 58,
           borderRadius: 999,
-          border: "2px solid var(--color-surface25)",
+          border: "2px solid var(--color-border)",
           display: "flex",
           alignItems: "center",
           padding: "0 22px",
-          color: "var(--color-surface50)",
+          color: "var(--color-muted)",
           fontSize: 20,
         }}
       >

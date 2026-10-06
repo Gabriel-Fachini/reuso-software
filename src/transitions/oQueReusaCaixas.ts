@@ -28,8 +28,8 @@ export const oQueReusaCaixas = defineTransition({
     });
 
     const bx = panel(layer, { cx: c.cx, cy: c.cy, w: 170, h: 170 }, "var(--gradient-ink)", 36);
-    bx.style.border = "1px solid var(--color-surface25)";
-    inside(bx, { color: "var(--color-surface50)", fontSize: "72px", fontWeight: "600" }, "?");
+    bx.style.border = "1px solid var(--color-border)";
+    inside(bx, { color: "var(--color-muted)", fontSize: "72px", fontWeight: "600" }, "?");
     tl.set(bx, { autoAlpha: 1 }, 0.72);
     tl.set(slabs, { autoAlpha: 0 }, 0.72);
     tl.fromTo(bx, { scaleX: 1.6, scaleY: 0.4 }, { scaleX: 1, scaleY: 1, duration: 0.6, ease: "elastic.out(1, 0.45)" }, 0.72);

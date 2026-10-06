@@ -48,9 +48,9 @@ function ButtonStates() {
   const style = (s: (typeof states)[number]) => {
     switch (s) {
       case "hover":
-        return { background: "var(--color-primary)", color: "var(--color-just-black)" };
+        return { background: "var(--color-primary)", color: "var(--color-bg)" };
       case "disabled":
-        return { borderColor: "var(--color-surface25)", color: "var(--color-surface50)" };
+        return { borderColor: "var(--color-border)", color: "var(--color-muted)" };
       default:
         return {};
     }
@@ -63,7 +63,7 @@ function ButtonStates() {
             {s === "loading" ? (
               <span
                 className="spinner"
-                style={{ width: 26, height: 26, borderRadius: "50%", border: "3px solid var(--color-surface25)", borderTopColor: "var(--color-shockingly-green)" }}
+                style={{ width: 26, height: 26, borderRadius: "50%", border: "3px solid var(--color-border)", borderTopColor: "var(--color-shockingly-green)" }}
               />
             ) : (
               <>
@@ -120,7 +120,7 @@ export default function S09Anatomia() {
       if (part >= 0) {
         ver
           .fromTo(`.v-${part}`, { yPercent: -40, scaleY: 1.2 }, { yPercent: 0, scaleY: 1, duration: 0.6, ease: "bounce.out", immediateRender: false }, "<")
-          .fromTo(`.v-lab-${part}`, { color: cssVar("--color-shockingly-green") }, { color: cssVar("--color-surface50"), duration: 1.4, immediateRender: false }, "<");
+          .fromTo(`.v-lab-${part}`, { color: cssVar("--color-green-deep") }, { color: cssVar("--color-ink50"), duration: 1.4, immediateRender: false }, "<");
       }
     });
 
@@ -168,7 +168,7 @@ export default function S09Anatomia() {
           <div className="row" style={{ gap: 14, alignItems: "stretch" }}>
             <div className="col" style={{ gap: 12, width: 92, paddingTop: 4 }}>
               {["Button", "Card", "Input", "Chip"].map((x, i) => (
-                <span key={x} style={{ fontSize: 18, color: i === 0 ? "var(--color-lilac)" : "var(--color-surface50)" }}>
+                <span key={x} style={{ fontSize: 18, color: i === 0 ? "var(--color-lilac-deep)" : "var(--color-muted)" }}>
                   {x}
                 </span>
               ))}
@@ -222,8 +222,8 @@ export default function S09Anatomia() {
             {["Proposta", "Revisão (design + tech)", "Release", "Depreciação"].map((x, i, arr) => (
               <div key={x} className="row" style={{ gap: 18, alignItems: "flex-start" }}>
                 <div className="col" style={{ alignItems: "center" }}>
-                  <div className="gov-dot" style={{ width: 28, height: 28, borderRadius: "50%", border: "3px solid var(--color-surface75)", background: "var(--color-just-black)" }} />
-                  {i < arr.length - 1 && <div style={{ width: 3, height: 54, background: "var(--color-surface25)" }} />}
+                  <div className="gov-dot" style={{ width: 28, height: 28, borderRadius: "50%", border: "3px solid var(--color-soft)", background: "var(--color-bg)" }} />
+                  {i < arr.length - 1 && <div style={{ width: 3, height: 54, background: "var(--color-border)" }} />}
                 </div>
                 <span style={{ fontSize: 23, lineHeight: "28px" }}>{x}</span>
               </div>

@@ -17,7 +17,7 @@ const pill = (w: number, h: number, bg: string, outline = false): CSSProperties 
   height: h,
   borderRadius: h / 2,
   flexShrink: 0,
-  ...(outline ? { border: "2px solid var(--color-surface25)", background: "var(--color-just-black)" } : { background: bg }),
+  ...(outline ? { border: "2px solid var(--color-border)", background: "var(--color-bg)" } : { background: bg }),
 });
 
 function Search({ input, btn, h }: { input: number; btn: number; h: number }) {
@@ -36,15 +36,15 @@ function Header({ filled }: { filled?: boolean }) {
       style={{
         width: INNER,
         padding: "8px 10px",
-        border: "2px solid var(--color-surface25)",
+        border: "2px solid var(--color-border)",
         borderRadius: 16,
         justifyContent: "space-between",
-        background: "var(--color-just-black)",
+        background: "var(--color-bg)",
       }}
     >
-      <div style={{ width: 26, height: 26, borderRadius: 8, background: filled ? "var(--gradient-purple-haze)" : "var(--color-surface25)" }} />
-      {filled ? <Search input={92} btn={40} h={28} /> : <div style={pill(138, 28, "var(--color-surface25)")} />}
-      <div style={{ width: 26, height: 26, borderRadius: "50%", background: filled ? "var(--gradient-orange-crush)" : "var(--color-surface25)" }} />
+      <div style={{ width: 26, height: 26, borderRadius: 8, background: filled ? "var(--gradient-purple-haze)" : "var(--color-border)" }} />
+      {filled ? <Search input={92} btn={40} h={28} /> : <div style={pill(138, 28, "var(--color-border)")} />}
+      <div style={{ width: 26, height: 26, borderRadius: "50%", background: filled ? "var(--gradient-orange-crush)" : "var(--color-border)" }} />
     </div>
   );
 }
@@ -66,8 +66,8 @@ function Body({ filled }: { filled?: boolean }) {
             height: 78,
             borderRadius: 12,
             padding: 10,
-            border: filled ? "none" : "2px dashed var(--color-surface25)",
-            background: filled ? "var(--color-just-black)" : "transparent",
+            border: filled ? "none" : "2px dashed var(--color-border)",
+            background: filled ? "var(--color-bg)" : "transparent",
             display: "flex",
             alignItems: "center",
             gap: 8,
@@ -78,13 +78,13 @@ function Body({ filled }: { filled?: boolean }) {
               <Shape kind={f.kind} grad={f.grad} size={30} />
               <div className="col" style={{ gap: 2 }}>
                 <span style={{ fontSize: 16, fontWeight: 600 }}>{f.name}</span>
-                <span style={{ fontSize: 13, color: "var(--color-lt-green)" }}>{f.price}</span>
+                <span style={{ fontSize: 13, color: "var(--color-green-deep)" }}>{f.price}</span>
               </div>
             </>
           ) : (
             <div className="col" style={{ gap: 6, width: "100%" }}>
-              <div style={pill(70, 9, "var(--color-surface25)")} />
-              <div style={pill(40, 9, "var(--color-surface25)")} />
+              <div style={pill(70, 9, "var(--color-border)")} />
+              <div style={pill(40, 9, "var(--color-border)")} />
             </div>
           )}
         </div>

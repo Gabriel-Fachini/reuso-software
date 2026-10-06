@@ -158,7 +158,7 @@ export default function S13GenAIPratica() {
               ✗ ds/no-raw-color: use um token de cor
             </div>
           </div>
-          <span className="fixed chip" style={{ alignSelf: "flex-start", borderColor: "var(--color-shockingly-green)", color: "var(--color-shockingly-green)" }}>
+          <span className="fixed chip" style={{ alignSelf: "flex-start", borderColor: "var(--color-shockingly-green)", color: "var(--color-green-deep)" }}>
             ✓ autofix aplicado
           </span>
           <p className="note body soft">Estilo fora dos tokens não passa no CI, venha de gente ou de IA.</p>

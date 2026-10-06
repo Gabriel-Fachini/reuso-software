@@ -36,13 +36,28 @@
   --color-lilac-soft: #c9a8f6;
   --color-highlight: rgba(255, 135, 9, 0.4);
 
-  /* semantic aliases */
-  --color-bg: var(--color-just-black);
-  --color-surface: var(--color-off-black);
-  --color-primary: var(--color-surface-white);
-  --color-muted: var(--color-surface50);
-  --color-soft: var(--color-surface75);
-  --color-border: var(--color-surface25);
+  /* tema claro (projetor fraco em tela branca): o creme do gsap.com vira o
+     fundo e o just-black vira o texto. Neutros intermediários escurecidos
+     para manter contraste. */
+  --color-off-white: #efecd0;
+  --color-ink75: #2c2d29;
+  --color-ink50: #5e5e53;
+  --color-ink25: #c4c2a9;
+
+  /* acentos para TEXTO sobre fundo claro (os originais somem no creme) */
+  --color-green-deep: #078a2f;
+  --color-orange-deep: #d45f00;
+  --color-pink-deep: #c4009f;
+  --color-lilac-deep: #5a4fe0;
+  --color-blue-deep: #007c99;
+
+  /* semantic aliases — use estes nas cenas */
+  --color-bg: var(--color-surface-white);
+  --color-surface: var(--color-off-white);
+  --color-primary: var(--color-just-black);
+  --color-muted: var(--color-ink50);
+  --color-soft: var(--color-ink75);
+  --color-border: var(--color-ink25);
   --color-secondary: var(--color-orangey);
   --color-tertiary: var(--color-shockingly-green);
 
@@ -63,6 +78,13 @@
   /* deck-specific */
   --gradient-ink: linear-gradient(160deg, #2a2c29, #0b0c0b);
   --gradient-spectrum: linear-gradient(90deg, #0ae448, #abff84 30%, #f7bdf8 70%, #ff8709);
+  /* texto em gradiente sobre fundo claro */
+  --gradient-text-macha: linear-gradient(114.41deg, #078a2f 20%, #0085d0 90%);
+  --gradient-text-orange: linear-gradient(111.45deg, #e06a00 20%, #cd237f 85%);
+  --gradient-text-lipstick: linear-gradient(165.72deg, #e0389f 15%, #9c1660 85%);
+  --gradient-text-purple: linear-gradient(153.58deg, #b23fb8 15%, #2f3cc0 85%);
+  --gradient-text-summer: linear-gradient(144.02deg, #0085d0 10%, #c4009f 85%);
+  --gradient-text-lilac: linear-gradient(135deg, #7a6ff5 10%, #3b2fc0 90%);
   --gradient-silver: linear-gradient(180deg, #7c7c6f 0%, #fffce1 30%, #bbbaa6 55%, #7c7c6f 80%, #bbbaa6 100%);
 
   /* --- easing (gsap.com) --- */

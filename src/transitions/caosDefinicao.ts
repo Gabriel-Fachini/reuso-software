@@ -43,7 +43,7 @@ export const caosDefinicao = defineTransition({
     // accretion rings show the spin
     [760, 1080].forEach((d, i) => {
       const ring = circle(layer, V, d, "transparent");
-      ring.style.border = "2px dashed var(--color-surface25)";
+      ring.style.border = "2px dashed var(--color-border)";
       tl.set(ring, { autoAlpha: 1 }, 0.4);
       tl.to(ring, { width: 250, height: 250, rotation: i ? -200 : 240, duration: 1.2, ease: "power2.in" }, 0.4);
       tl.to(ring, { autoAlpha: 0, duration: 0.2 }, 1.45);

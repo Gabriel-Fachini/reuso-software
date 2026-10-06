@@ -94,8 +94,8 @@ function Bullet() {
       <GradDef name="silver" id="bullet-g" w={200} h={48} />
       <rect x={0} y={4} width={22} height={40} rx={5} fill="url(#bullet-g)" />
       <path d="M18 7 H118 C160 7 188 17 200 24 C188 31 160 41 118 41 H18 Z" fill="url(#bullet-g)" />
-      <rect x={40} y={7} width={5} height={34} style={{ fill: "var(--color-surface50)" }} />
-      <path d="M28 13 H120 C150 13 170 17 182 21" fill="none" stroke="var(--color-surface-white)" strokeWidth={3} strokeLinecap="round" />
+      <rect x={40} y={7} width={5} height={34} style={{ fill: "var(--color-muted)" }} />
+      <path d="M28 13 H120 C150 13 170 17 182 21" fill="none" stroke="var(--color-primary)" strokeWidth={3} strokeLinecap="round" />
     </svg>
   );
 }
@@ -118,12 +118,12 @@ function Hole({ i }: { i: number }) {
       viewBox="0 0 80 80"
       style={{ left: CARD_W / 2 - 60, top: LANE_Y - 60, overflow: "visible", rotate: `${i * 47}deg` }}
     >
-      <g fill="none" stroke="var(--color-surface50)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+      <g fill="none" stroke="var(--color-muted)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
         {cracks.map((c) => (
           <polyline key={c} points={c} />
         ))}
       </g>
-      <polygon points={edge} fill="var(--color-just-black)" stroke="var(--color-surface25)" strokeWidth={4} strokeLinejoin="round" />
+      <polygon points={edge} fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth={4} strokeLinejoin="round" />
     </svg>
   );
 }
@@ -244,7 +244,7 @@ export default function S15Fechamento() {
           ))}
           {/* the bullet's path, behind the cards too: it shows in the margin and gaps */}
           <div className="trail abs" style={{ left: -120, top: LANE_Y - 1, width: ROW_W + 120, height: 2, overflow: "hidden", zIndex: 0 }}>
-            <div className="trail-line" style={{ width: "100%", height: 2, background: "var(--color-surface75)" }} />
+            <div className="trail-line" style={{ width: "100%", height: 2, background: "var(--color-soft)" }} />
           </div>
           <div className="deco abs" style={{ left: TIP_END - 20, top: LANE_Y - 20, zIndex: 2 }}>
             <div className="glint">
@@ -296,7 +296,8 @@ export default function S15Fechamento() {
                 gap: 40,
                 padding: 28,
                 borderRadius: 28,
-                background: "var(--color-surface-white)",
+                background: "var(--color-surface)",
+                border: "2px solid var(--color-border)",
                 color: "var(--color-just-black)",
                 alignItems: "center",
               }}

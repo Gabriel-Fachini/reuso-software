@@ -32,7 +32,7 @@ export const atomicLinhas = defineTransition({
       tl.to(f, { x: b0.cx - b.cx, rotation: gsap.utils.random(-7, 7), duration: 0.55, ease: "power3.inOut" }, 0.2 + (frames.length - 1 - i) * 0.07);
     });
 
-    const core = panel(layer, b0, "var(--color-off-black)", 24);
+    const core = panel(layer, b0, "var(--color-surface)", 24);
     const fill = inside(core, { background: "var(--gradient-core)", opacity: "0" });
     const text = coreText(core);
     tl.set(core, { autoAlpha: 1, rotation: 0 }, 0.95);

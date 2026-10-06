@@ -53,7 +53,8 @@ O hook pós-edição já roda `tsc` e `check-ds` automaticamente a cada arquivo 
 
 Tudo vem de `src/styles/tokens.css`. **Nunca** escreva cor, gradiente ou fonte literal em cena: use os tokens. Para tweens de cor no GSAP, use `cssVar("--color-…")` de `src/engine/tokens.ts`.
 
-- **Cores:** `--color-just-black` (fundo), `--color-surface-white` (texto), `--color-surface75/50/25` (texto suave / muted / bordas), `--color-off-black` (cards), acentos `--color-shockingly-green`, `--color-orangey`, `--color-pink`, `--color-shockingly-pink`, `--color-lilac`, `--color-blue`.
+- **Tema claro** (projetor fraco em tela branca): fundo creme, texto escuro. Em cena use os **semânticos**: `--color-bg` (fundo), `--color-primary` (texto), `--color-soft` / `--color-muted` (texto suave), `--color-border` (bordas, placeholders), `--color-surface` (cards). `--color-just-black` só como tinta escura sobre acento (texto em `<Mark>`, pílula verde etc.).
+- **Acentos:** `--color-shockingly-green`, `--color-orangey`, `--color-pink`, `--color-shockingly-pink`, `--color-lilac`, `--color-blue` para preenchimentos. Para **texto** colorido use as versões `-deep` (`--color-green-deep`, `-orange-deep`, `-pink-deep`, `-lilac-deep`, `-blue-deep`) ou as classes `.green .orange…`, que já usam elas; os acentos puros somem no creme.
 - **Gradientes:** `--gradient-macha`, `-orange-crush`, `-lipstick`, `-purple-haze`, `-skyfall`, `-emerald-city`, `-summer-fair`, `-text`, `-scroll`, os radiais de volume `-core`, `-tangerine`, `-ui`, e `-silver` (metal, bala de prata).
 - **Tipografia:** classes `.hero`, `.display`, `.h1` (peso 600, linhas coladas), `.statement` (peso 400), `.h2`, `.h3`, `.body-lg`, `.body`, `.label`; cores `.soft`, `.muted`; texto em gradiente `.gt .gt-macha` etc.
 - **Componentes** (`src/components/`):

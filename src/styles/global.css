@@ -14,7 +14,7 @@ html,
 body,
 #root {
   height: 100%;
-  background: #000;
+  background: var(--color-bg);
   color: var(--color-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -26,7 +26,7 @@ body,
 .viewport {
   position: fixed;
   inset: 0;
-  background: #000;
+  background: var(--color-bg);
 }
 
 .stage {
@@ -180,19 +180,19 @@ body,
   color: var(--color-soft);
 }
 .orange {
-  color: var(--color-orangey);
+  color: var(--color-orange-deep);
 }
 .green {
-  color: var(--color-shockingly-green);
+  color: var(--color-green-deep);
 }
 .pink {
-  color: var(--color-pink);
+  color: var(--color-pink-deep);
 }
 .lilac {
-  color: var(--color-lilac);
+  color: var(--color-lilac-deep);
 }
 .blue {
-  color: var(--color-blue);
+  color: var(--color-blue-deep);
 }
 .mono {
   font-family: var(--font-mono);
@@ -206,22 +206,22 @@ body,
   padding-bottom: 0.08em;
 }
 .gt-macha {
-  background-image: var(--gradient-macha);
+  background-image: var(--gradient-text-macha);
 }
 .gt-orange {
-  background-image: var(--gradient-orange-crush);
+  background-image: var(--gradient-text-orange);
 }
 .gt-lipstick {
-  background-image: var(--gradient-lipstick);
+  background-image: var(--gradient-text-lipstick);
 }
 .gt-purple {
-  background-image: var(--gradient-purple-haze);
+  background-image: var(--gradient-text-purple);
 }
 .gt-summer {
-  background-image: var(--gradient-summer-fair);
+  background-image: var(--gradient-text-summer);
 }
 .gt-text {
-  background-image: var(--gradient-text);
+  background-image: var(--gradient-text-lilac);
 }
 
 /* SplitText masks should not clip descenders */
@@ -284,7 +284,7 @@ body,
 }
 .mark.ivory {
   background: var(--color-primary);
-  color: var(--color-just-black);
+  color: var(--color-bg);
 }
 
 .btn {
@@ -345,7 +345,7 @@ body,
   gap: 10px;
   padding: 10px 18px;
   border-radius: var(--radius-full);
-  border: 2px solid var(--color-surface25);
+  border: 2px solid var(--color-border);
   background: transparent;
   font: 600 var(--fs-label-sm) / 1 var(--font-sans);
   letter-spacing: -0.01em;
@@ -354,22 +354,22 @@ body,
 }
 
 .card {
-  background: var(--color-off-black);
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: 32px;
 }
 
 .divider {
   height: 1px;
-  background: var(--color-surface25);
+  background: var(--color-border);
 }
 
 .code {
   font-family: var(--font-mono);
   font-size: 21px;
   line-height: 1.6;
-  background: var(--color-just-black);
-  border: 1px solid var(--color-surface25);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 22px 26px;
   white-space: pre;
@@ -377,16 +377,16 @@ body,
 }
 
 .code .k {
-  color: var(--color-lilac);
+  color: var(--color-lilac-deep);
 }
 .code .s {
-  color: var(--color-lt-green);
+  color: var(--color-green-deep);
 }
 .code .c {
   color: var(--color-muted);
 }
 .code .o {
-  color: var(--color-orangey);
+  color: var(--color-orange-deep);
 }
 
 /* placeholder for data the group still has to provide */
@@ -396,7 +396,7 @@ body,
   padding: 6px 14px;
   border: 2px dashed var(--color-orangey);
   border-radius: var(--radius-sm);
-  color: var(--color-orangey);
+  color: var(--color-orange-deep);
   font: 600 0.7em / 1.2 var(--font-mono);
   white-space: nowrap;
 }

@@ -208,7 +208,7 @@ export default function S12GenAI() {
                   background: "var(--gradient-macha)",
                 }}
               >
-                <div className="col" style={{ flex: 1, borderRadius: 19, background: "var(--color-just-black)", padding: 14, gap: 8, justifyContent: "center" }}>
+                <div className="col" style={{ flex: 1, borderRadius: 19, background: "var(--color-bg)", padding: 14, gap: 8, justifyContent: "center" }}>
                   <span className="label muted" style={{ fontSize: 14 }}>VOCABULÁRIO</span>
                   {["<Button>", "<Card>", "<Input>", "color.brand", "space.md"].map((c) => (
                     <span key={c} className="chip mono" style={{ fontSize: 14, padding: "6px 12px", alignSelf: "flex-start" }}>

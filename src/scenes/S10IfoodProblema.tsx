@@ -88,18 +88,18 @@ export default function S10IfoodProblema() {
 
           <div className="col" style={{ alignItems: "center", gap: 40 }}>
             <div style={{ position: "relative", width: 600, height: 320 }}>
-              <div className="venn-a abs" style={{ left: 30, top: 0, mixBlendMode: "screen" }}>
+              <div className="venn-a abs" style={{ left: 30, top: 0, mixBlendMode: "multiply" }}>
                 <div className="venn-shape center" style={{ width: 320, height: 320, borderRadius: "50%", background: "var(--gradient-orange-crush)", opacity: 0.85 }}>
                   <span className="h3" style={{ color: "var(--color-just-black)", fontWeight: 600, marginRight: 110 }}>Tech</span>
                 </div>
               </div>
-              <div className="venn-b abs" style={{ left: 250, top: 0, mixBlendMode: "screen" }}>
+              <div className="venn-b abs" style={{ left: 250, top: 0, mixBlendMode: "multiply" }}>
                 <div className="venn-shape center" style={{ width: 320, height: 320, borderRadius: "50%", background: "var(--gradient-purple-haze)", opacity: 0.85 }}>
                   <span className="h3" style={{ color: "var(--color-just-black)", fontWeight: 600, marginLeft: 110 }}>Design</span>
                 </div>
               </div>
               <div className="venn-mid abs" style={{ left: 300, top: 160 }}>
-                <span className="chip" style={{ background: "var(--color-just-black)", borderColor: "var(--color-primary)", fontSize: 20 }}>
+                <span className="chip" style={{ background: "var(--color-bg)", borderColor: "var(--color-primary)", fontSize: 20 }}>
                   força-tarefa
                 </span>
               </div>

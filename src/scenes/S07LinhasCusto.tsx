@@ -115,33 +115,33 @@ export default function S07LinhasCusto() {
               </linearGradient>
             </defs>
             <polygon className="gain" points="390,210 720,40 720,170" fill="url(#gain-g)" />
-            <path className="axis" d="M 60 20 V 400" stroke="var(--color-surface25)" strokeWidth={3} />
-            <path className="axis" d="M 60 400 H 740" stroke="var(--color-surface25)" strokeWidth={3} />
-            <text className="axis-text" x={60} y={448} fill="var(--color-surface50)" fontSize={20} fontFamily="var(--font-sans)">
+            <path className="axis" d="M 60 20 V 400" stroke="var(--color-border)" strokeWidth={3} />
+            <path className="axis" d="M 60 400 H 740" stroke="var(--color-border)" strokeWidth={3} />
+            <text className="axis-text" x={60} y={448} fill="var(--color-muted)" fontSize={20} fontFamily="var(--font-sans)">
               nº de produtos / times →
             </text>
-            <text className="axis-text" x={-400} y={36} transform="rotate(-90)" fill="var(--color-surface50)" fontSize={20} fontFamily="var(--font-sans)">
+            <text className="axis-text" x={-400} y={36} transform="rotate(-90)" fill="var(--color-muted)" fontSize={20} fontFamily="var(--font-sans)">
               custo acumulado →
             </text>
 
             <path className="l-sem" d="M 60 380 L 720 40" stroke="url(#sem-g)" strokeWidth={8} strokeLinecap="round" fill="none" />
-            <text className="lab-sem" x={590} y={36} fill="var(--color-orangey)" fontSize={24} fontWeight={600} fontFamily="var(--font-sans)">
+            <text className="lab-sem" x={590} y={36} fill="var(--color-orange-deep)" fontSize={24} fontWeight={600} fontFamily="var(--font-sans)">
               sem DS
             </text>
             <path className="l-com" d="M 60 250 L 720 170" stroke="url(#com-g)" strokeWidth={8} strokeLinecap="round" fill="none" />
-            <text className="lab-com" x={600} y={212} fill="var(--color-shockingly-green)" fontSize={24} fontWeight={600} fontFamily="var(--font-sans)">
+            <text className="lab-com" x={600} y={212} fill="var(--color-green-deep)" fontSize={24} fontWeight={600} fontFamily="var(--font-sans)">
               com DS
             </text>
-            <text className="lab-com" x={70} y={214} fill="var(--color-surface75)" fontSize={17} fontFamily="var(--font-sans)">
+            <text className="lab-com" x={70} y={214} fill="var(--color-soft)" fontSize={17} fontFamily="var(--font-sans)">
               investimento inicial alto
             </text>
 
             <circle className="be-pulse" cx={390} cy={210} r={14} fill="none" stroke="var(--color-primary)" strokeWidth={2} />
-            <circle className="be" cx={390} cy={210} r={14} fill="var(--color-just-black)" stroke="var(--color-primary)" strokeWidth={5} />
+            <circle className="be" cx={390} cy={210} r={14} fill="var(--color-bg)" stroke="var(--color-primary)" strokeWidth={5} />
             <text className="be-label" x={350} y={300} fill="var(--color-primary)" fontSize={24} fontWeight={600} fontFamily="var(--font-sans)">
               ponto de equilíbrio
             </text>
-            <text className="be-label" x={350} y={332} fill="var(--color-surface75)" fontSize={20} fontFamily="var(--font-sans)">
+            <text className="be-label" x={350} y={332} fill="var(--color-soft)" fontSize={20} fontFamily="var(--font-sans)">
               o retorno cresce com a escala
             </text>
           </svg>

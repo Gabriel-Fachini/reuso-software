@@ -54,7 +54,7 @@ export function ArrowDot() {
 
 export function Arrow({
   width = 80,
-  color = "var(--color-surface50)",
+  color = "var(--color-muted)",
   className,
   style,
 }: {
