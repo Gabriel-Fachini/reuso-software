@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, fallOut } from "../engine/transition";
 
 /*
- * 19 → 20  "A bala segue, os desafios caem"
+ * 18 → 19  "A bala segue, os desafios caem"
  *
  * out: the silver bullet keeps flying off stage; the pierced cards fall with
  *      gravity, one after the other.

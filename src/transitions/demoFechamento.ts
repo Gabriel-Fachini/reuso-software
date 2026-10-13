@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, popOut, takeOver } from "../engine/transition";
 
 /*
- * 18 → 19  "O produto se parte em desafios"
+ * 17 → 18  "O produto se parte em desafios"
  *
  * out: the token editor slides away; the product is sliced into five
  *      vertical strips that pull apart and tilt.
