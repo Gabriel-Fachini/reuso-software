@@ -178,6 +178,7 @@ export function Deck({ scenes }: { scenes: SceneDef[] }) {
           goTo(scenes.length - 1);
           break;
         case "f":
+        case "F":
           if (document.fullscreenElement) document.exitFullscreen();
           else document.documentElement.requestFullscreen();
           break;
