@@ -1,7 +1,7 @@
 import { gsap } from "../engine/gsap";
 import { useScene } from "../engine/useScene";
 import { drawIn, float, pop, reveal, rise } from "../engine/anim";
-import { Dado, Eyebrow, Mark } from "../components/ui";
+import { Eyebrow, Mark } from "../components/ui";
 import { GradDef, Shape } from "../components/Shape";
 import type { GradName, ShapeKind } from "../components/Shape";
 
@@ -145,21 +145,19 @@ export default function S11IfoodSolucao() {
 
       <div className="row" style={{ marginTop: 44, gap: 20, alignItems: "stretch" }}>
         {[
-          ["componentes na biblioteca", "nº componentes"],
-          ["microfrontends consumindo", "nº de MFEs"],
-          ["para construir uma tela", "ganho de tempo"],
-        ].map(([label, dado]) => (
-          <div key={label} className="metric card col" style={{ width: 330, gap: 14, justifyContent: "space-between", padding: 26 }}>
-            <span style={{ fontSize: 26 }}>
-              <Dado>{dado}</Dado>
-            </span>
-            <span className="muted" style={{ fontSize: 20 }}>{label}</span>
+          ["~187", "componentes na biblioteca"],
+          ["47", "microfrontends em produção"],
+          ["~50%", "menos tempo que do zero · ~40% vs. lib OSS · ~10% vs. copiar tela irmã"],
+        ].map(([num, label]) => (
+          <div key={label} className="metric card col" style={{ width: 330, gap: 10, justifyContent: "space-between", padding: 26 }}>
+            <span className="h2" style={{ fontSize: 56, fontWeight: 600, lineHeight: 1 }}>{num}</span>
+            <span className="muted" style={{ fontSize: 18, lineHeight: 1.3 }}>{label}</span>
           </div>
         ))}
         <div className="learn card col grow" style={{ gap: 12, padding: 26 }}>
           <span className="label muted" style={{ fontSize: 17 }}>APRENDIZADOS</span>
           <div style={{ fontSize: 23 }}>
-            <span className="green">✓</span> base comum + autonomia dos times <Dado>o que mais funcionou</Dado>
+            <span className="green">✓</span> base comum + autonomia de ~22–27 squads
           </div>
           <div style={{ fontSize: 23 }}>
             <span className="orange">✗</span> adoção · versionamento entre MFEs · contribuição

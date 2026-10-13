@@ -1,7 +1,7 @@
 import { gsap } from "../engine/gsap";
 import { useScene } from "../engine/useScene";
 import { breathe, drift, drop, exit, pop, reveal, rise, step } from "../engine/anim";
-import { Dado, Eyebrow, Mark } from "../components/ui";
+import { Eyebrow, Mark } from "../components/ui";
 import { Chaos } from "../components/Chaos";
 import { Deco } from "../components/Shape";
 
@@ -76,7 +76,7 @@ export default function S10IfoodProblema() {
           <ul className="prob col" style={{ listStyle: "none", gap: 40, width: 760 }}>
             {[
               <>Cultura <Mark color="orange" tilt={-2}>fail-fast</Mark>: experimentar e entregar rápido</>,
-              <>Muitos times entregando em paralelo <Dado>nº de times</Dado></>,
+              <>Muitos times entregando em paralelo: <strong>~22–27 squads</strong></>,
               <>Consistência de design cada vez mais difícil de manter</>,
             ].map((t, i) => (
               <li key={i} className="row body-lg" style={{ gap: 26, alignItems: "baseline" }}>
