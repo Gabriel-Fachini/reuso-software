@@ -5,6 +5,9 @@ import { Eyebrow, Mark } from "../components/ui";
 import { Chaos } from "../components/Chaos";
 import { Deco } from "../components/Shape";
 
+// glossary terms (defined at the start of scene 12) are underlined
+const term = { textDecoration: "underline", textDecorationColor: "var(--color-shockingly-green)", textDecorationThickness: 4, textUnderlineOffset: 6 } as const;
+
 export default function S10IfoodProblema() {
   const root = useScene((tl) => {
     gsap.set(".layer-b, .layer-c", { autoAlpha: 0 });
@@ -76,7 +79,7 @@ export default function S10IfoodProblema() {
           <ul className="prob col" style={{ listStyle: "none", gap: 40, width: 760 }}>
             {[
               <>Cultura <Mark color="orange" tilt={-2}>fail-fast</Mark>: experimentar e entregar rápido</>,
-              <>Muitos times entregando em paralelo: <strong>~22–27 squads</strong></>,
+              <>Muitos times entregando em paralelo: <strong style={term}>~22–27 squads</strong></>,
               <>Consistência de design cada vez mais difícil de manter</>,
             ].map((t, i) => (
               <li key={i} className="row body-lg" style={{ gap: 26, alignItems: "baseline" }}>

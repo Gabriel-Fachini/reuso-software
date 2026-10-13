@@ -1,6 +1,6 @@
 import { gsap } from "../engine/gsap";
 import { useScene } from "../engine/useScene";
-import { drawIn, float, pop, reveal, rise } from "../engine/anim";
+import { arcIn, drawIn, exit, float, pop, reveal, rise, step } from "../engine/anim";
 import { Eyebrow, Mark } from "../components/ui";
 import { GradDef, Shape } from "../components/Shape";
 import type { GradName, ShapeKind } from "../components/Shape";
@@ -49,29 +49,53 @@ function Node({
   );
 }
 
+// a small dictionary before the architecture: the case's key terms
+const glossary: { term: string; tag: string; def: string; ex: string; shape: ShapeKind; grad: GradName }[] = [
+  { term: "Fail-fast", tag: "cultura", def: "testar ideias cedo e corrigir rápido: errar barato faz parte do processo.", ex: "lança → mede → ajusta", shape: "star", grad: "tangerine" },
+  { term: "Squad", tag: "time", def: "time pequeno e autônomo, dono de uma parte do produto de ponta a ponta.", ex: "~22–27 squads em paralelo", shape: "flower", grad: "purple" },
+  { term: "Microfrontend", tag: "MFE", def: "pedaço da interface com deploy próprio, mantido por um time; juntos formam o app.", ex: "Busca · Carrinho · Checkout", shape: "squircle", grad: "core" },
+];
+
+// glossary terms are underlined where they show up in the case
+const term = { textDecoration: "underline", textDecorationColor: "var(--color-shockingly-green)", textDecorationThickness: 4, textUnderlineOffset: 6 } as const;
+
+const GL = { x: 160, y: 250, w: 1600, h: 560 };
+
 export default function S11IfoodSolucao() {
   const root = useScene((tl) => {
     rise(tl, ".eyebrow", 0.1);
-    reveal(tl, ".title", 0.2);
-    reveal(tl, ".title2", 0.45);
+
+    // A — glossary card (the 11 → 12 transition lands on .gloss-box)
+    rise(tl, ".gloss-box", 0.1, { y: 60 });
+    rise(tl, ".gloss-head", 0.35, { y: 20 });
+    arcIn(tl, ".entry", 0.45, { x: 80, y: 80, rotation: 3 }, { stagger: 0.14 });
+    pop(tl, ".entry .icon", 0.8, { stagger: 0.14 });
+    rise(tl, ".entry .ex", 1.1, { y: 14, stagger: 0.1 });
+    step(tl);
+
+    // B — the architecture
+    exit(tl, ".gloss", undefined, { y: -60, scale: 0.94 });
+    tl.addLabel("b", "-=0.2");
+    reveal(tl, ".title", "b");
+    reveal(tl, ".title2", "b+=0.25");
 
     // web: Figma -> React lib -> microfrontends
-    rise(tl, ".n-figma", 0.8, { x: -50, y: 0 });
-    drawIn(tl, ".c-1", 1.3, { duration: 0.5 });
-    rise(tl, ".n-react", 1.5, { x: -50, y: 0 });
-    drawIn(tl, ".c-2", 2.0, { duration: 0.6 });
-    pop(tl, ".mfe", 2.3, { stagger: { each: 0.08, from: "start" } });
-    rise(tl, ".mfe-label", 2.9);
+    rise(tl, ".n-figma", "b+=0.6", { x: -50, y: 0 });
+    drawIn(tl, ".c-1", "b+=1.1", { duration: 0.5 });
+    rise(tl, ".n-react", "b+=1.3", { x: -50, y: 0 });
+    drawIn(tl, ".c-2", "b+=1.8", { duration: 0.6 });
+    pop(tl, ".mfe", "b+=2.1", { stagger: { each: 0.08, from: "start" } });
+    rise(tl, ".mfe-label", "b+=2.7");
 
     // mobile expansion
-    drawIn(tl, ".c-3", 3.2, { duration: 1 });
-    pop(tl, ".n-mobile", 3.8, { stagger: 0.15 });
-    rise(tl, ".mobile-label", 4.1);
-    pop(tl, ".mobile-label .mark", 4.4);
+    drawIn(tl, ".c-3", "b+=3.0", { duration: 1 });
+    pop(tl, ".n-mobile", "b+=3.6", { stagger: 0.15 });
+    rise(tl, ".mobile-label", "b+=3.9");
+    pop(tl, ".mobile-label .mark", "b+=4.2");
 
     // numbers + learnings
-    rise(tl, ".metric", 4.6, { stagger: 0.12 });
-    rise(tl, ".learn", 5.0);
+    rise(tl, ".metric", "b+=4.4", { stagger: 0.12 });
+    rise(tl, ".learn", "b+=4.8");
 
     // autonomous teams pulsing on a shared base
     gsap.utils.toArray<HTMLElement>(".mfe-dot").forEach((d) => {
@@ -86,11 +110,40 @@ export default function S11IfoodSolucao() {
       });
     });
     float(".mfe-inner", 4, 1.5);
+    float(".entry .icon", 10, 10);
   });
 
   return (
     <div className="scene" ref={root}>
       <Eyebrow>05 · Case iFood</Eyebrow>
+
+      <div className="gloss abs" style={{ left: GL.x, top: GL.y, width: GL.w, height: GL.h, zIndex: 2 }}>
+        <div className="gloss-box col" style={{ width: GL.w, height: GL.h, padding: "40px 44px", gap: 30, borderRadius: 32, background: "var(--color-surface)" }}>
+          <div className="gloss-head row" style={{ gap: 18, alignItems: "baseline" }}>
+            <span className="label green" style={{ fontSize: 24 }}>GLOSSÁRIO</span>
+            <span className="h3" style={{ fontSize: 40, fontWeight: 600 }}>Três termos para entender o case</span>
+          </div>
+          <div className="row" style={{ gap: 28, flex: 1, alignItems: "stretch" }}>
+            {glossary.map((g) => (
+              <div key={g.term} className="entry">
+                <div className="col" style={{ width: 486, height: "100%", padding: 30, gap: 16, borderRadius: 22, background: "var(--color-bg)" }}>
+                  <div className="row" style={{ justifyContent: "space-between" }}>
+                    <span className="chip mono" style={{ fontSize: 18, padding: "4px 14px" }}>{g.tag}</span>
+                    <div className="icon">
+                      <Shape kind={g.shape} grad={g.grad} size={52} />
+                    </div>
+                  </div>
+                  <span className="h3" style={{ fontSize: 44, fontWeight: 600 }}>{g.term}</span>
+                  <span className="soft" style={{ fontSize: 27, lineHeight: 1.35 }}>{g.def}</span>
+                  <span style={{ flex: 1 }} />
+                  <span className="ex mono green" style={{ fontSize: 21 }}>{g.ex}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="row" style={{ marginTop: 34, gap: 26, alignItems: "baseline" }}>
         <h2 className="h1 title">Uma base comum,</h2>
         <h2 className="statement soft title2" style={{ fontSize: 64 }}>times autônomos.</h2>
@@ -131,8 +184,8 @@ export default function S11IfoodSolucao() {
               </div>
             ))}
           </div>
-          <div className="mfe-label muted" style={{ fontSize: 19, marginTop: 14 }}>
-            microfrontends (nomes ilustrativos) · UI encapsulada, cada time experimenta sobre a mesma base
+          <div className="mfe-label soft" style={{ fontSize: 21, marginTop: 14 }}>
+            <strong style={term}>microfrontends</strong> (nomes ilustrativos) · cada squad experimenta sobre a mesma base
           </div>
         </div>
 

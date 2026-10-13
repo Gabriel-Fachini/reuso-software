@@ -110,9 +110,9 @@ export default function S12GenAI() {
       },
       "-=0.3",
     );
-    step(tl);
 
-    rise(tl, ".right .side-title");
+    // right side enters while the left is still settling
+    rise(tl, ".right .side-title", "-=1.6");
     rise(tl, ".right .prompt", "-=0.8", { x: -40, y: 0, stagger: 0.12 });
     pop(tl, ".harness", "-=0.5");
     pop(tl, ".harness .chip", "-=0.5", { stagger: 0.05 });

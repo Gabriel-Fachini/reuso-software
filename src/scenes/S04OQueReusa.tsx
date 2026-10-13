@@ -15,7 +15,7 @@ const levels = [
 const SLAB_H = 80;
 const GAP = 12;
 const CENTER = 600;
-const EX_X = CENTER + 415 + 60;
+const EX_X = CENTER + 415 + 40;
 
 export default function S04OQueReusa() {
   const root = useScene((tl) => {
@@ -50,9 +50,9 @@ export default function S04OQueReusa() {
 
       <div style={{ position: "relative", height: levels.length * (SLAB_H + GAP), marginTop: 56 }}>
         <div className="abs col" style={{ left: 0, top: 0, bottom: 0, width: 120, alignItems: "center", gap: 14 }}>
-          <span className="axis-label label muted" style={{ fontSize: 16 }}>ABSTRATO</span>
+          <span className="axis-label label soft" style={{ fontSize: 21 }}>ABSTRATO</span>
           <div className="axis-line" style={{ flex: 1, width: 3, borderRadius: 2, background: "linear-gradient(var(--color-pink), var(--color-blue))" }} />
-          <span className="axis-label label muted" style={{ fontSize: 16 }}>CONCRETO</span>
+          <span className="axis-label label soft" style={{ fontSize: 21 }}>CONCRETO</span>
         </div>
 
         {levels.map((l, i) => {
@@ -76,7 +76,7 @@ export default function S04OQueReusa() {
                   {l.name}
                 </div>
               </div>
-              <div className={`ex-${i} abs mono soft`} style={{ left: EX_X, top: i * (SLAB_H + GAP) + SLAB_H / 2 - 14, fontSize: 23 }}>
+              <div className={`ex-${i} abs mono soft`} style={{ left: EX_X, top: i * (SLAB_H + GAP) + SLAB_H / 2 - 18, fontSize: 28, whiteSpace: "nowrap" }}>
                 {l.ex}
               </div>
             </div>

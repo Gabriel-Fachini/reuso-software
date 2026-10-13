@@ -38,7 +38,6 @@ export default function S03Definicao() {
     pop(tl, ".badge-out", 2.9);
     rise(tl, ".lg-2", 2.4, { x: -40, y: 0 });
     pop(tl, ".def .mark", 2.6, { stagger: 0.08 });
-    rise(tl, ".refs", 3.1);
     pop(tl, ".s-deco", 1.2, { stagger: 0.15 });
     pop(tl, ".sat-mid", 2.2, { stagger: 0.1, transformOrigin: "50% 50%" });
     pop(tl, ".sat-out", 3.0, { stagger: 0.1, transformOrigin: "50% 50%" });
@@ -76,26 +75,22 @@ export default function S03Definicao() {
       <div className="row" style={{ flex: 1, gap: 60, alignItems: "center" }}>
         <div style={{ width: 860 }}>
           <h2 className="h1 title">Fonte única da verdade.</h2>
-          <p className="def body-lg soft" style={{ marginTop: 34, lineHeight: 1.5 }}>
+          <p className="def soft" style={{ marginTop: 40, fontSize: 40, lineHeight: 1.45 }}>
             Conjunto de <Mark color="ivory" tilt={0}>padrões</Mark>, <Mark color="ivory" tilt={0}>componentes</Mark>,{" "}
             <Mark color="ivory" tilt={0}>tokens</Mark>, <Mark color="ivory" tilt={0}>documentação</Mark> e{" "}
             <Mark color="ivory" tilt={0}>governança</Mark> compartilhado por design e desenvolvimento.
           </p>
 
-          <div className="col" style={{ gap: 22, marginTop: 44 }}>
+          <div className="col" style={{ gap: 26, marginTop: 56 }}>
             {legend.map((l, i) => (
-              <div key={l.name} className={`lg-${i} row`} style={{ gap: 20 }}>
-                <span style={{ width: 26, height: 26, borderRadius: "50%", background: l.bg, flexShrink: 0 }} />
-                <span className="label" style={{ fontSize: 26 }}>{l.name}</span>
-                <span className="muted" style={{ fontSize: 21 }}>{l.desc}</span>
+              <div key={l.name} className={`lg-${i} row`} style={{ gap: 20, alignItems: "flex-start" }}>
+                <span style={{ width: 30, height: 30, borderRadius: "50%", background: l.bg, flexShrink: 0, marginTop: 6 }} />
+                <div className="col" style={{ gap: 2 }}>
+                  <span className="label" style={{ fontSize: 34 }}>{l.name}</span>
+                  <span className="soft" style={{ fontSize: 28 }}>{l.desc}</span>
+                </div>
               </div>
             ))}
-          </div>
-
-          <div className="refs row" style={{ gap: 14, marginTop: 44 }}>
-            <span className="muted label" style={{ fontSize: 17 }}>REFERÊNCIAS</span>
-            <span className="chip">Material Design · Google</span>
-            <span className="chip">Atomic Design · Brad Frost</span>
           </div>
         </div>
 

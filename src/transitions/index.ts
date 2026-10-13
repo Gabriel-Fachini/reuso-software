@@ -11,9 +11,13 @@ import { tokensAnatomia } from "./tokensAnatomia";
 import { anatomiaIfood } from "./anatomiaIfood";
 import { ifoodSolucao } from "./ifoodSolucao";
 import { solucaoGenai } from "./solucaoGenai";
-import { genaiPratica } from "./genaiPratica";
-import { praticaDemo } from "./praticaDemo";
+import { genaiReuso } from "./genaiReuso";
+import { reusoContexto } from "./reusoContexto";
+import { contextoPratica } from "./contextoPratica";
+import { praticaRuntime } from "./praticaRuntime";
+import { runtimeDemo } from "./runtimeDemo";
 import { demoFechamento } from "./demoFechamento";
+import { desafiosConclusao } from "./desafiosConclusao";
 
 // Custom transitions, keyed "<from id>><to id>" (ids from src/scenes/index.ts).
 // Only used when moving forward; any pair not listed uses the deck's default.
@@ -31,7 +35,11 @@ export const transitions: Record<string, Transition<any>> = {
   "anatomia>ifood-problema": anatomiaIfood,
   "ifood-problema>ifood-solucao": ifoodSolucao,
   "ifood-solucao>genai": solucaoGenai,
-  "genai>genai-pratica": genaiPratica,
-  "genai-pratica>demo": praticaDemo,
-  "demo>fechamento": demoFechamento,
+  "genai>genai-reuso": genaiReuso,
+  "genai-reuso>genai-contexto": reusoContexto,
+  "genai-contexto>genai-pratica": contextoPratica,
+  "genai-pratica>genai-runtime": praticaRuntime,
+  "genai-runtime>demo": runtimeDemo,
+  "demo>desafios": demoFechamento,
+  "desafios>conclusao": desafiosConclusao,
 };

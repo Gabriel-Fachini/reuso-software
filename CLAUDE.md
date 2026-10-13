@@ -1,6 +1,6 @@
 # Seminário: Design System como Estratégia de Reuso
 
-Apresentação em motion graphics (React + Vite + GSAP) para a disciplina de Reuso de Software. Palco fixo de 1920×1080, 16 cenas, identidade visual do gsap.com. Roteiro original: `roteiro-seminario-design-system.md` (não editar).
+Apresentação em motion graphics (React + Vite + GSAP) para a disciplina de Reuso de Software. Palco fixo de 1920×1080, 21 cenas, identidade visual do gsap.com. Roteiro original: `roteiro-seminario-design-system.md` (não editar).
 
 Várias pessoas do grupo editam este projeto pedindo mudanças em linguagem natural ("na cena 11, troca X"). Seu trabalho é transformar o pedido em código que respeite as regras abaixo, **sem afetar as cenas dos outros**, e mostrar o resultado visual antes de terminar.
 
@@ -30,13 +30,19 @@ npm run export:mp4   # vídeo de prévia em out/apresentacao.mp4
 | 9 | tokens | 04 Anatomia | `S08Tokens.tsx` | fluxo | a definir |
 | 10 | anatomia | 04 Anatomia | `S09Anatomia.tsx` | fluxo | a definir |
 | 11 | ifood-problema | 05 Case iFood | `S10IfoodProblema.tsx` | 3 passos | @prato |
-| 12 | ifood-solucao | 05 Case iFood | `S11IfoodSolucao.tsx` | fluxo | @prato |
-| 13 | genai | 06 GenAI | `S12GenAI.tsx` | 3 passos | Gabriel |
-| 14 | genai-pratica | 06 GenAI | `S13GenAIPratica.tsx` | 4 passos | Gabriel |
-| 15 | demo | 07 Demonstração | `S14Demo.tsx` (+ `demo.css`) | 5 passos | a definir |
-| 16 | fechamento | 08 Desafios + 09 Conclusão | `S15Fechamento.tsx` | 3 passos | a definir |
+| 12 | ifood-solucao | 05 Case iFood | `S11IfoodSolucao.tsx` | 2 passos | @prato |
+| 13 | genai | 06 GenAI | `S12GenAI.tsx` | 2 passos | Gabriel |
+| 14 | genai-reuso | 06 GenAI | `S12bGenAIReuso.tsx` | 2 passos | Gabriel |
+| 15 | genai-contexto | 06 GenAI | `S12cGenAIContexto.tsx` | fluxo | Gabriel |
+| 16 | genai-pratica | 06 GenAI | `S13GenAIPratica.tsx` | 2 passos | Gabriel |
+| 17 | genai-runtime | 06 GenAI | `S13bGenAIRuntime.tsx` | 3 passos | Gabriel |
+| 18 | demo | 07 Demonstração | `S14Demo.tsx` (+ `demo.css`) | 5 passos | a definir |
+| 19 | desafios | 08 Desafios | `S15Desafios.tsx` | fluxo | a definir |
+| 20 | conclusao | 09 Conclusão | `S15bConclusao.tsx` | 2 passos | a definir |
+| 21 | referencias | 10 Referências | `S16Referencias.tsx` | estático | Gabriel |
 
 - **Fluxo** = a animação inteira roda com um único avanço (`flow: true` em `src/scenes/index.ts`). Não use `step()` nessas cenas.
+- **Estático** = cena de fluxo sem animação nenhuma (`useScene(() => {})`). Referências ficam só na cena 21; nas outras cite no máximo inline.
 - **Passos** = cada `step(tl)` é um clique do apresentador.
 - Quando alguém disser "minha cena" e não der o número, pergunte qual é (ou use a coluna Responsável).
 
@@ -85,7 +91,7 @@ Use os helpers de `src/engine/anim.ts`; não escreva entradas com `gsap.from/to`
 - **iFood só aparece a partir da cena 11** (a revelação é parte da narrativa). O `check-ds` bloqueia isso.
 - Nada confidencial do iFood. Dado que o grupo ainda não passou vira `<Dado>descrição</Dado>`. Os nomes dos microfrontends na cena 12 são ilustrativos.
 - Exemplos de código usam o pacote fictício `@acme/ui`.
-- Máximo de 16 cenas. Nova cena ou mudança de ordem = mexer em `src/scenes/index.ts` (compartilhado → confirmar antes).
+- Máximo de 21 cenas. Nova cena ou mudança de ordem = mexer em `src/scenes/index.ts` (compartilhado → confirmar antes).
 
 ## Arquivos compartilhados (pedir confirmação antes de editar)
 

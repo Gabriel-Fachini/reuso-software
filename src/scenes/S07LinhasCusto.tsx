@@ -32,7 +32,10 @@ export default function S07LinhasCusto() {
     drawIn(tl, ".l-com", 3.7, { duration: 1.8, ease: "power1.inOut" });
     rise(tl, ".lab-com", 4.8, { y: 10 });
     tl.from(".gain", { autoAlpha: 0, duration: 1 }, 5.2);
-    pop(tl, ".be", 5.3, { transformOrigin: "50% 50%" });
+    // the origin is set before the pop: changing it mid-tween (from scale 0)
+    // makes GSAP's smoothOrigin shift the dot off the crossing
+    gsap.set(".be", { svgOrigin: "390 210" });
+    pop(tl, ".be", 5.3);
     rise(tl, ".be-label", 5.5, { y: 10 });
 
     float(".product-inner", 4, 1.5);

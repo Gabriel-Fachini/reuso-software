@@ -200,7 +200,7 @@ export default function S06Atomic() {
               </div>
               <div className="caption">
                 <div className="h3" style={{ fontSize: 34, fontWeight: 600 }}>{s.name}</div>
-                <div className="muted" style={{ fontSize: 20, marginTop: 4 }}>{s.ex}</div>
+                <div className="soft" style={{ fontSize: 26, lineHeight: 1.25, marginTop: 6 }}>{s.ex}</div>
               </div>
             </div>
             {i < stages.length - 1 && <Arrow className={`arrow-${i}`} width={34} style={{ marginTop: 153 }} />}

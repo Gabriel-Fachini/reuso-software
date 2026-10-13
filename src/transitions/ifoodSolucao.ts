@@ -6,8 +6,9 @@ import { defineTransition, exitText, inside, morphTo, panel, popOut, swap, takeO
  *
  * out: the problems slide out; Tech and Design slide into each other and
  *      merge into one disc.
- * in:  the disc flattens into the "Biblioteca React" card — the common base —
- *      and the architecture grows around it. The eyebrow stays put: same block.
+ * in:  the disc opens into the glossary card that starts scene 12 (the terms
+ *      of the case); the architecture comes on the next click. The eyebrow
+ *      stays put: same block.
  */
 export const ifoodSolucao = defineTransition({
   out({ scene, layer, box }, tl) {
@@ -36,16 +37,16 @@ export const ifoodSolucao = defineTransition({
   in(ctx, tl, { disc, card }) {
     const eyebrow = ctx.scene.querySelector(".eyebrow");
     if (eyebrow) takeOver(ctx, eyebrow);
-    const react = ctx.scene.querySelector(".n-react");
-    if (!react) {
+    const box = ctx.scene.querySelector(".gloss-box");
+    if (!box) {
       tl.to(disc, { autoAlpha: 0, duration: 0.3 }, 0);
       return;
     }
-    const nat = takeOver(ctx, react);
-    gsap.set(react, { autoAlpha: 0 });
-    morphTo(tl, disc, nat, 0, { duration: 0.75, radius: 24, ease: "power3.inOut" });
+    const nat = takeOver(ctx, box);
+    gsap.set(box, { autoAlpha: 0 });
+    morphTo(tl, disc, nat, 0, { duration: 0.8, radius: 32, ease: "power3.inOut" });
     tl.to(card, { opacity: 1, duration: 0.45 }, 0.25);
-    swap(tl, disc, react, 0.75, 0.2);
+    swap(tl, disc, box, 0.8, 0.2);
     tl.call(() => void ctx.tl.play(0), [], 0);
   },
 });

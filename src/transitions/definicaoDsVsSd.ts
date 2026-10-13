@@ -14,7 +14,7 @@ type State = { cx: number; cy: number; font: number };
 export const definicaoDsVsSd = defineTransition<State>({
   out({ scene, box }, tl) {
     const $ = (s: string) => [...scene.querySelectorAll(s)];
-    exitText(tl, scene, ".title, .def, .lg-0, .lg-1, .lg-2, .refs", 0);
+    exitText(tl, scene, ".title, .def, .lg-0, .lg-1, .lg-2", 0);
     gsap.killTweensOf($(".ripple"));
     popOut(tl, $(".badge-mid, .s-deco, .inner"), 0.05, { stagger: 0.03 });
     tl.to($(".sat-mid, .sat-out, .ripple"), { autoAlpha: 0, duration: 0.25, stagger: 0.02 }, 0.05);

@@ -143,7 +143,7 @@ export default function S14Demo() {
 
         {/* the "product" */}
         <div className="demo-app-wrap" style={{ position: "relative" }}>
-          <Deco className="x-deco" x={990} y={330} kind="pinwheel" grad="orange" size={90} />
+          <Deco className="x-deco" x={940} y={540} kind="pinwheel" grad="orange" size={90} />
           <Deco className="x-deco" x={-40} y={560} kind="ring" grad="summer" size={70} />
           <div ref={appRef} className="demo-app">
             <div className="d-header" data-c>

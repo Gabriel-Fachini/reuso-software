@@ -69,7 +69,7 @@ function At({ cls, x, y, children }: { cls: string; x: number; y: number; childr
 
 function VizLabel({ x, children }: { x: number; children: ReactNode }) {
   return (
-    <span className="viz-lb abs mono muted" style={{ left: x, top: 14, fontSize: 15, letterSpacing: "0.04em" }}>
+    <span className="viz-lb abs mono soft" style={{ left: x, top: 12, fontSize: 19, fontWeight: 600, letterSpacing: "0.04em" }}>
       {children}
     </span>
   );
@@ -410,8 +410,8 @@ export default function S03bDsVsSd() {
         <div key={side} className="abs col" style={{ left: side === "l" ? COL_L : COL_R, top: ROWS_Y, width: COL_W, gap: 16 }}>
           {rows.map(([label, ds, sd]) => (
             <div key={label} className={`ri-${side} col`} style={{ gap: 4 }}>
-              <span className="label muted mono" style={{ fontSize: 15, letterSpacing: "0.04em" }}>{label}</span>
-              <span style={{ fontSize: 27, lineHeight: 1.3 }}>{side === "l" ? ds : sd}</span>
+              <span className="label soft mono" style={{ fontSize: 21, fontWeight: 600, letterSpacing: "0.04em" }}>{label}</span>
+              <span style={{ fontSize: 30, lineHeight: 1.25 }}>{side === "l" ? ds : sd}</span>
             </div>
           ))}
         </div>

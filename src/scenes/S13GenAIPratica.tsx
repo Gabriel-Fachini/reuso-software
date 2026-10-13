@@ -36,17 +36,15 @@ export default function S13GenAIPratica() {
     pop(tl, ".pc-1 .icon", 0.9);
     const typed = SplitText.create(".typed", { type: "chars" });
     tl.from(typed.chars, { autoAlpha: 0, duration: 0.01, stagger: 0.018, ease: "none" }, 1.2);
-    rise(tl, ".pc-1 .note", "-=0.2");
-    step(tl);
+    rise(tl, ".pc-1 .note", 1.6);
 
-    // 02 design-to-code
-    arcIn(tl, ".pc-2", undefined, { x: -120, y: 100, rotation: -4 });
-    pop(tl, ".pc-2 .icon", "-=0.9");
-    pop(tl, ".frame", "-=0.6");
-    tl.from(".pc-2 .arrow", { scaleX: 0, transformOrigin: "left", duration: 0.5 });
-    rise(tl, ".d2c-code", "-=0.2", { x: -30, y: 0 });
-    rise(tl, ".pc-2 .note", "-=0.5");
-    step(tl);
+    // 02 design-to-code — enters together with the others
+    arcIn(tl, ".pc-2", 0.65, { x: -120, y: 100, rotation: -4 });
+    pop(tl, ".pc-2 .icon", 1.05);
+    pop(tl, ".frame", 1.3);
+    tl.from(".pc-2 .arrow", { scaleX: 0, transformOrigin: "left", duration: 0.5 }, 1.6);
+    rise(tl, ".d2c-code", 1.9, { x: -30, y: 0 });
+    rise(tl, ".pc-2 .note", 2.0);
 
     // 03 lint — the card and its text enter once; the lint demo inside loops
     // on its own timeline (restarted here so it begins from the top)
@@ -76,10 +74,10 @@ export default function S13GenAIPratica() {
       )
       .to(".good, .fixed", { autoAlpha: 0, duration: 0.4, ease: "power2.in" }, 5.6);
 
-    arcIn(tl, ".pc-3", undefined, { x: -120, y: 100, rotation: -4 });
-    tl.call(() => lint.restart(), [], "<0.05");
-    pop(tl, ".pc-3 .icon", "-=0.9");
-    rise(tl, ".pc-3 .note", "-=0.6");
+    arcIn(tl, ".pc-3", 0.8, { x: -120, y: 100, rotation: -4 });
+    tl.call(() => lint.restart(), [], 0.85);
+    pop(tl, ".pc-3 .icon", 1.2);
+    rise(tl, ".pc-3 .note", 2.1);
     step(tl);
 
     tl.to(".cards", { autoAlpha: 0.06, scale: 0.97, duration: 0.8, ease: "power2.inOut" });

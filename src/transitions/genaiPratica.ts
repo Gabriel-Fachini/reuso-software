@@ -1,14 +1,36 @@
 import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, fallOut, inside, morphTo, panel, swap, takeOver } from "../engine/transition";
+import type { TransitionInCtx } from "../engine/transition";
+
+type Harness = { frame: HTMLElement; fill: HTMLElement };
+
+/** in(): the harness frame (a macha-bordered panel) grows into a card of the scene. */
+export function harnessInto(selector: string) {
+  return (ctx: TransitionInCtx, tl: gsap.core.Timeline, { frame, fill }: Harness) => {
+    const card = ctx.scene.querySelector(selector);
+    if (!card) {
+      tl.to(frame, { autoAlpha: 0, duration: 0.3 }, 0);
+      tl.call(() => void ctx.tl.play(0), [], 0);
+      return;
+    }
+    const nat = takeOver(ctx, card);
+    gsap.set(card, { autoAlpha: 0 });
+    morphTo(tl, frame, nat, 0, { duration: 0.7, radius: 24, ease: "power3.inOut" });
+    tl.to(fill, { inset: "0px", borderRadius: "24px", background: "var(--color-surface)", duration: 0.45 }, 0.25);
+    swap(tl, frame, card, 0.7, 0.2);
+    tl.call(() => void ctx.tl.play(0), [], 0);
+  };
+}
 
 /*
- * 13 → 14  "O harness vira contexto"
+ * Was 13 → 14  "O harness vira contexto". Not registered anymore: its out() is
+ * reused by 13 → 14 (genaiReuso) and its in() (harnessInto) by 15 → 16.
  *
  * out: the lightning strikes again and the Frankenstein side falls apart;
  *      the good outputs slide away and only the DS harness is left.
  * in:  the harness grows into the first card, "Docs como contexto".
  */
-export const genaiPratica = defineTransition({
+export const genaiPratica = defineTransition<Harness>({
   out({ scene, layer, box }, tl) {
     const $ = (s: string) => [...scene.querySelectorAll(s)];
     const bolt = $(".bolt-inner");
@@ -30,17 +52,5 @@ export const genaiPratica = defineTransition({
     return { frame, fill };
   },
 
-  in(ctx, tl, { frame, fill }) {
-    const card = ctx.scene.querySelector(".pc-1");
-    if (!card) {
-      tl.to(frame, { autoAlpha: 0, duration: 0.3 }, 0);
-      return;
-    }
-    const nat = takeOver(ctx, card);
-    gsap.set(card, { autoAlpha: 0 });
-    morphTo(tl, frame, nat, 0, { duration: 0.7, radius: 24, ease: "power3.inOut" });
-    tl.to(fill, { inset: "0px", borderRadius: "24px", background: "var(--color-surface)", duration: 0.45 }, 0.25);
-    swap(tl, frame, card, 0.7, 0.2);
-    tl.call(() => void ctx.tl.play(0), [], 0);
-  },
+  in: harnessInto(".pc-1"),
 });

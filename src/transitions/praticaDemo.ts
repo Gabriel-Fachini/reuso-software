@@ -1,7 +1,8 @@
 import { circle, defineTransition, exitText, morphTo, panel, popOut, takeOver } from "../engine/transition";
 
 /*
- * 14 → 15  "A cor inunda tudo"
+ * Was 14 → 15  "A cor inunda tudo". Not registered anymore: its out() is reused
+ * by 16 → 17 (praticaRuntime) and its in() by 17 → 18 (runtimeDemo).
  *
  * out: "máquinas." keeps its green block while the words leave; the block
  *      crouches and floods the stage.
