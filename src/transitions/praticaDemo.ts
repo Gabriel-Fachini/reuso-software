@@ -1,7 +1,7 @@
 import { circle, defineTransition, exitText, morphTo, panel, popOut, takeOver } from "../engine/transition";
 
 /*
- * 13 → 14  "A cor inunda tudo"
+ * 14 → 15  "A cor inunda tudo"
  *
  * out: "máquinas." keeps its green block while the words leave; the block
  *      crouches and floods the stage.

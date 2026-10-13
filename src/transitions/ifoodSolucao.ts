@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, inside, morphTo, panel, popOut, swap, takeOver } from "../engine/transition";
 
 /*
- * 10 → 11  "A força-tarefa vira a base comum"
+ * 11 → 12  "A força-tarefa vira a base comum"
  *
  * out: the problems slide out; Tech and Design slide into each other and
  *      merge into one disc.

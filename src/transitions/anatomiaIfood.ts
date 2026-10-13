@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText } from "../engine/transition";
 
 /*
- * 9 → 10  "A ordem desmorona, o caos volta"
+ * 10 → 11  "A ordem desmorona, o caos volta"
  *
  * out: the four panels topple like dominoes, left to right, and fall away.
  * in:  the off-brand buttons from the opening come flying back up from below

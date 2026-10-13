@@ -1,6 +1,7 @@
 // Reuses the dev server on :5173 if it is already running, otherwise starts
 // one for the duration of the script.
 import { spawn } from "node:child_process";
+import { readFileSync } from "node:fs";
 
 export const BASE = "http://localhost:5173";
 
@@ -25,7 +26,10 @@ export async function ensureServer() {
 }
 
 /** "6" | "3-5" | "3,6,9" | "all" (default) → [3, 4, 5] … */
-export function parseScenes(arg, total = 15) {
+const sceneCount = () =>
+  [...readFileSync(new URL("../../src/scenes/index.ts", import.meta.url), "utf8").matchAll(/\{\s*id:\s*"/g)].length;
+
+export function parseScenes(arg, total = sceneCount()) {
   if (!arg || arg === "all") return Array.from({ length: total }, (_, i) => i + 1);
   return arg.split(",").flatMap((part) => {
     const [a, b] = part.split("-").map(Number);

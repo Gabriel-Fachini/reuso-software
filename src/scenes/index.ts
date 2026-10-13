@@ -2,6 +2,7 @@ import type { SceneDef } from "../engine/Deck";
 import S01Capa from "./S01Capa";
 import S02Caos from "./S02Caos";
 import S03Definicao from "./S03Definicao";
+import S03bDsVsSd from "./S03bDsVsSd";
 import S04OQueReusa from "./S04OQueReusa";
 import S05Caixas from "./S05Caixas";
 import S06Atomic from "./S06Atomic";
@@ -22,6 +23,7 @@ export const scenes: SceneDef[] = [
   { id: "capa", block: "Design System como Estratégia de Reuso", Component: S01Capa, flow: true, hold: 3000 },
   { id: "caos", block: "01 · Abertura", Component: S02Caos, flow: true },
   { id: "definicao", block: "02 · O que é um Design System", Component: S03Definicao, flow: true },
+  { id: "ds-vs-sd", block: "02 · O que é um Design System", Component: S03bDsVsSd, flow: true, hold: 3500 },
   { id: "o-que-reusa", block: "03 · Design System e Reuso", Component: S04OQueReusa, flow: true },
   { id: "caixas", block: "03 · Design System e Reuso", Component: S05Caixas, flow: true, hold: 3200 },
   { id: "atomic", block: "03 · Design System e Reuso", Component: S06Atomic, flow: true },

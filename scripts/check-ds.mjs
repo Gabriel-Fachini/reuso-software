@@ -1,4 +1,4 @@
-// Design-system lint for the deck (the same idea the deck pitches in scene 13).
+// Design-system lint for the deck (the same idea the deck pitches in scene 14).
 // Usage: node scripts/check-ds.mjs [arquivos...]   (sem argumentos: tudo)
 //
 // Rules

@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { circle, defineTransition, exitText, popOut, pull, takeOver } from "../engine/transition";
 
 /*
- * 8 → 9  "O build distribui as peças"
+ * 9 → 10  "O build distribui as peças"
  *
  * out: the wires un-draw into the build ring, which swallows the source and
  *      the outputs and winds up, spinning faster and swelling.

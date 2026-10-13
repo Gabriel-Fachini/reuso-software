@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, fallOut, morphTo, panel, swap, takeOver } from "../engine/transition";
 
 /*
- * 5 → 6  "A caixa-branca se abre em átomos"
+ * 6 → 7  "A caixa-branca se abre em átomos"
  *
  * out: everything falls away except the white box, which shivers and splits
  *      into four pieces that drift apart.

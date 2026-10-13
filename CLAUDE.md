@@ -1,6 +1,6 @@
 # Seminário: Design System como Estratégia de Reuso
 
-Apresentação em motion graphics (React + Vite + GSAP) para a disciplina de Reuso de Software. Palco fixo de 1920×1080, 15 cenas, identidade visual do gsap.com. Roteiro original: `roteiro-seminario-design-system.md` (não editar).
+Apresentação em motion graphics (React + Vite + GSAP) para a disciplina de Reuso de Software. Palco fixo de 1920×1080, 16 cenas, identidade visual do gsap.com. Roteiro original: `roteiro-seminario-design-system.md` (não editar).
 
 Várias pessoas do grupo editam este projeto pedindo mudanças em linguagem natural ("na cena 11, troca X"). Seu trabalho é transformar o pedido em código que respeite as regras abaixo, **sem afetar as cenas dos outros**, e mostrar o resultado visual antes de terminar.
 
@@ -22,18 +22,19 @@ npm run export:mp4   # vídeo de prévia em out/apresentacao.mp4
 | 1 | capa | — | `src/scenes/S01Capa.tsx` | fluxo | a definir |
 | 2 | caos | 01 Abertura | `S02Caos.tsx` | fluxo | a definir |
 | 3 | definicao | 02 O que é um DS | `S03Definicao.tsx` | fluxo | a definir |
-| 4 | o-que-reusa | 03 DS e Reuso | `S04OQueReusa.tsx` | fluxo | a definir |
-| 5 | caixas | 03 DS e Reuso | `S05Caixas.tsx` | fluxo | a definir |
-| 6 | atomic | 03 DS e Reuso | `S06Atomic.tsx` | fluxo | a definir |
-| 7 | linhas-custo | 03 DS e Reuso | `S07LinhasCusto.tsx` | fluxo | a definir |
-| 8 | tokens | 04 Anatomia | `S08Tokens.tsx` | fluxo | a definir |
-| 9 | anatomia | 04 Anatomia | `S09Anatomia.tsx` | fluxo | a definir |
-| 10 | ifood-problema | 05 Case iFood | `S10IfoodProblema.tsx` | 3 passos | @prato |
-| 11 | ifood-solucao | 05 Case iFood | `S11IfoodSolucao.tsx` | fluxo | @prato |
-| 12 | genai | 06 GenAI | `S12GenAI.tsx` | 3 passos | Gabriel |
-| 13 | genai-pratica | 06 GenAI | `S13GenAIPratica.tsx` | 4 passos | Gabriel |
-| 14 | demo | 07 Demonstração | `S14Demo.tsx` (+ `demo.css`) | 5 passos | a definir |
-| 15 | fechamento | 08 Desafios + 09 Conclusão | `S15Fechamento.tsx` | 3 passos | a definir |
+| 4 | ds-vs-sd | 02 O que é um DS | `S03bDsVsSd.tsx` | fluxo | Gabriel |
+| 5 | o-que-reusa | 03 DS e Reuso | `S04OQueReusa.tsx` | fluxo | a definir |
+| 6 | caixas | 03 DS e Reuso | `S05Caixas.tsx` | fluxo | a definir |
+| 7 | atomic | 03 DS e Reuso | `S06Atomic.tsx` | fluxo | a definir |
+| 8 | linhas-custo | 03 DS e Reuso | `S07LinhasCusto.tsx` | fluxo | a definir |
+| 9 | tokens | 04 Anatomia | `S08Tokens.tsx` | fluxo | a definir |
+| 10 | anatomia | 04 Anatomia | `S09Anatomia.tsx` | fluxo | a definir |
+| 11 | ifood-problema | 05 Case iFood | `S10IfoodProblema.tsx` | 3 passos | @prato |
+| 12 | ifood-solucao | 05 Case iFood | `S11IfoodSolucao.tsx` | fluxo | @prato |
+| 13 | genai | 06 GenAI | `S12GenAI.tsx` | 3 passos | Gabriel |
+| 14 | genai-pratica | 06 GenAI | `S13GenAIPratica.tsx` | 4 passos | Gabriel |
+| 15 | demo | 07 Demonstração | `S14Demo.tsx` (+ `demo.css`) | 5 passos | a definir |
+| 16 | fechamento | 08 Desafios + 09 Conclusão | `S15Fechamento.tsx` | 3 passos | a definir |
 
 - **Fluxo** = a animação inteira roda com um único avanço (`flow: true` em `src/scenes/index.ts`). Não use `step()` nessas cenas.
 - **Passos** = cada `step(tl)` é um clique do apresentador.
@@ -81,10 +82,10 @@ Use os helpers de `src/engine/anim.ts`; não escreva entradas com `gsap.from/to`
 ## Conteúdo
 
 - Português do Brasil. Textos baseados no roteiro.
-- **iFood só aparece a partir da cena 10** (a revelação é parte da narrativa). O `check-ds` bloqueia isso.
-- Nada confidencial do iFood. Dado que o grupo ainda não passou vira `<Dado>descrição</Dado>`. Os nomes dos microfrontends na cena 11 são ilustrativos.
+- **iFood só aparece a partir da cena 11** (a revelação é parte da narrativa). O `check-ds` bloqueia isso.
+- Nada confidencial do iFood. Dado que o grupo ainda não passou vira `<Dado>descrição</Dado>`. Os nomes dos microfrontends na cena 12 são ilustrativos.
 - Exemplos de código usam o pacote fictício `@acme/ui`.
-- Máximo de 15 cenas. Nova cena ou mudança de ordem = mexer em `src/scenes/index.ts` (compartilhado → confirmar antes).
+- Máximo de 16 cenas. Nova cena ou mudança de ordem = mexer em `src/scenes/index.ts` (compartilhado → confirmar antes).
 
 ## Arquivos compartilhados (pedir confirmação antes de editar)
 

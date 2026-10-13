@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, inside, land, panel, takeOver } from "../engine/transition";
 
 /*
- * 6 → 7  "As peças viram o núcleo comum"
+ * 7 → 8  "As peças viram o núcleo comum"
  *
  * out: the five cards are gathered onto the first one like a deck of cards;
  *      the deck turns green and shrinks into the "núcleo comum" block.

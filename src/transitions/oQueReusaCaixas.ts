@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, inside, land, panel, popOut, takeOver } from "../engine/transition";
 
 /*
- * 4 → 5  "A pilha vira caixa-preta"
+ * 5 → 6  "A pilha vira caixa-preta"
  *
  * out: the explanations slide away; the five layers are pressed together
  *      into one dark box with a "?" — it crouches and is thrown up off stage.

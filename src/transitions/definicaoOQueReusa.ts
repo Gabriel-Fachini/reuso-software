@@ -2,7 +2,8 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, inside, land, panel, popOut, takeOver } from "../engine/transition";
 
 /*
- * 3 → 4  "O núcleo vira camada"
+ * Was 3 → 4  "O núcleo vira camada". Not registered anymore (scene 4 is now
+ * Design System ≠ System Design); its in() is reused by 4 → 5 (dsVsSdOQueReusa).
  *
  * out: the rings un-draw, satellites and badges pop away; the "Style guide"
  *      core crouches and stretches into a flat orange pill: "Design tokens".

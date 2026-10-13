@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, inside, morphTo, panel, pull, swap, takeOver } from "../engine/transition";
 
 /*
- * 7 → 8  "O núcleo comum é dado"
+ * 8 → 9  "O núcleo comum é dado"
  *
  * out: the chart un-draws; the products are pulled back along their branches
  *      into the core, which gulps them.

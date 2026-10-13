@@ -1,7 +1,8 @@
 import type { Transition } from "../engine/transition";
 import { capaCaos } from "./capaCaos";
 import { caosDefinicao } from "./caosDefinicao";
-import { definicaoOQueReusa } from "./definicaoOQueReusa";
+import { definicaoDsVsSd } from "./definicaoDsVsSd";
+import { dsVsSdOQueReusa } from "./dsVsSdOQueReusa";
 import { oQueReusaCaixas } from "./oQueReusaCaixas";
 import { caixasAtomic } from "./caixasAtomic";
 import { atomicLinhas } from "./atomicLinhas";
@@ -20,7 +21,8 @@ import { demoFechamento } from "./demoFechamento";
 export const transitions: Record<string, Transition<any>> = {
   "capa>caos": capaCaos,
   "caos>definicao": caosDefinicao,
-  "definicao>o-que-reusa": definicaoOQueReusa,
+  "definicao>ds-vs-sd": definicaoDsVsSd,
+  "ds-vs-sd>o-que-reusa": dsVsSdOQueReusa,
   "o-que-reusa>caixas": oQueReusaCaixas,
   "caixas>atomic": caixasAtomic,
   "atomic>linhas-custo": atomicLinhas,

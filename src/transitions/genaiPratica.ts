@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { defineTransition, exitText, fallOut, inside, morphTo, panel, swap, takeOver } from "../engine/transition";
 
 /*
- * 12 → 13  "O harness vira contexto"
+ * 13 → 14  "O harness vira contexto"
  *
  * out: the lightning strikes again and the Frankenstein side falls apart;
  *      the good outputs slide away and only the DS harness is left.

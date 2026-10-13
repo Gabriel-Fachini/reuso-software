@@ -2,7 +2,7 @@ import { gsap } from "../engine/gsap";
 import { circle, defineTransition, exitText, fallOut, morphTo, swap, takeOver } from "../engine/transition";
 
 /*
- * 11 → 12  "Times viram agentes"
+ * 12 → 13  "Times viram agentes"
  *
  * out: the architecture falls away; each microfrontend card collapses into
  *      its pulsing team dot.
