@@ -39,55 +39,6 @@ const recap = [
   ["GenAI", "é o motivo para investir agora", "var(--gradient-purple-haze)"],
 ];
 
-// QR placeholder: real-looking finder/timing patterns + seeded noise
-const QR_N = 25;
-const QR_PATH = (() => {
-  let seed = 20261005;
-  const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  const finder = (x: number, y: number) =>
-    x >= 0 && y >= 0 && x < 7 && y < 7 && (x === 0 || y === 0 || x === 6 || y === 6 || (x >= 2 && x <= 4 && y >= 2 && y <= 4));
-  const far = QR_N - 7;
-  let d = "";
-  for (let y = 0; y < QR_N; y++) {
-    for (let x = 0; x < QR_N; x++) {
-      let on: boolean;
-      if ((x < 8 && y < 8) || (x >= far - 1 && y < 8) || (x < 8 && y >= far - 1)) {
-        on = finder(x >= far - 1 ? x - far : x, y >= far - 1 ? y - far : y);
-      } else if (x === 6 || y === 6) on = (x + y) % 2 === 0;
-      else if (x >= 9 && x <= 15 && y >= 9 && y <= 15) on = false; // center badge
-      else on = rand() < 0.5;
-      if (on) d += `M${x} ${y}h1v1h-1z`;
-    }
-  }
-  return d;
-})();
-
-function QrPlaceholder({ size }: { size: number }) {
-  return (
-    <div style={{ position: "relative", width: size, height: size }}>
-      <svg width={size} height={size} viewBox={`-1 -1 ${QR_N + 2} ${QR_N + 2}`} shapeRendering="crispEdges" style={{ display: "block" }}>
-        <path d={QR_PATH} style={{ fill: "var(--color-just-black)" }} />
-      </svg>
-      <span
-        className="abs center mono"
-        style={{
-          left: "50%",
-          top: "50%",
-          translate: "-50% -50%",
-          width: 58,
-          height: 58,
-          borderRadius: 12,
-          border: "3px solid var(--color-just-black)",
-          fontSize: 18,
-          fontWeight: 700,
-        }}
-      >
-        QR
-      </span>
-    </div>
-  );
-}
-
 function Bullet() {
   return (
     <svg width={BULLET_W} height={BULLET_H} viewBox="0 0 200 48" style={{ display: "block", overflow: "visible" }}>
@@ -132,8 +83,8 @@ function Hole({ i }: { i: number }) {
 const party: { x: number; y: number; el: ReactNode; spin?: boolean }[] = [
   { x: 170, y: 200, el: <span className="chip mono">color.brand</span> },
   { x: 1500, y: 160, el: <span className="btn">Pedir <ArrowDot /></span> },
-  { x: 1620, y: 760, el: <span className="chip mono">space.md</span> },
-  { x: 210, y: 800, el: <span className="btn fill">Continuar <ArrowDot /></span> },
+  { x: 1640, y: 650, el: <span className="chip mono">space.md</span> },
+  { x: 210, y: 880, el: <span className="btn fill">Continuar <ArrowDot /></span> },
   { x: 330, y: 360, el: <Shape kind="pinwheel" grad="orange" size={110} />, spin: true },
   { x: 1560, y: 420, el: <Shape kind="flower" grad="purple" size={140} /> },
   { x: 1760, y: 300, el: <Shape kind="star" grad="tangerine" size={80} />, spin: true },
@@ -197,7 +148,6 @@ export default function S15Fechamento() {
     tl.addLabel("c");
     pop(tl, ".join", "c");
     pop(tl, ".kahoot-logo", "c+=0.3");
-    rise(tl, ".join-text", "c+=0.4", { y: 30, stagger: 0.12 });
     reveal(tl, ".perguntas", "c+=0.6");
     pop(tl, ".perguntas .mark", "c+=1.3");
     rise(tl, ".thanks", "c+=1.5");
@@ -293,8 +243,7 @@ export default function S15Fechamento() {
             <div
               className="join-inner row"
               style={{
-                gap: 40,
-                padding: 28,
+                padding: "36px 48px",
                 borderRadius: 28,
                 background: "var(--color-surface)",
                 border: "2px solid var(--color-border)",
@@ -302,26 +251,19 @@ export default function S15Fechamento() {
                 alignItems: "center",
               }}
             >
-              <QrPlaceholder size={220} />
-              <div className="col" style={{ gap: 20, alignItems: "flex-start", textAlign: "left" }}>
-                <img
-                  className="kahoot-logo"
-                  src={`${import.meta.env.BASE_URL}kahoot-logo.svg`}
-                  alt="Kahoot!"
-                  style={{ width: 270, display: "block" }}
-                />
-                <span className="join-text" style={{ fontSize: 26, fontWeight: 500 }}>
-                  Entre em <span className="mono" style={{ fontWeight: 700 }}>kahoot.it</span>
-                </span>
-                <span className="join-text dado" style={{ fontSize: 34 }}>[PIN do jogo]</span>
-              </div>
+              <img
+                className="kahoot-logo"
+                src={`${import.meta.env.BASE_URL}kahoot-logo.svg`}
+                alt="Kahoot!"
+                style={{ width: 360, display: "block" }}
+              />
             </div>
           </div>
           <div className="hero perguntas" style={{ marginTop: 64, fontSize: 170 }}>
             Perguntas<Mark color="orange" tilt={6} style={{ marginLeft: 12 }}>?</Mark>
           </div>
           <div className="thanks body-lg soft" style={{ marginTop: 34 }}>
-            Obrigado! · Ana Lívia · Bruno · Bueno · Gabriel · Prato
+            Obrigado! · Ana Lívia Garbin · Bruno Breda · Guilherme Bueno · Gabriel Fachini · Felipe Corerato
           </div>
         </div>
       </div>

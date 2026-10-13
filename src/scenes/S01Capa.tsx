@@ -150,7 +150,7 @@ export default function S01Capa() {
         </div>
       </div>
       <div className="names body soft" style={{ position: "relative", marginTop: "auto" }}>
-        Ana Lívia · Bruno · Bueno · Gabriel · Prato
+        Ana Lívia Garbin · Bruno Breda · Guilherme Bueno · Gabriel Fachini · Felipe Corerato
       </div>
     </div>
   );
