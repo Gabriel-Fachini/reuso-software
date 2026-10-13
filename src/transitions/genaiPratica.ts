@@ -28,7 +28,7 @@ export function harnessInto(selector: string) {
  *
  * out: the lightning strikes again and the Frankenstein side falls apart;
  *      the good outputs slide away and only the DS harness is left.
- * in:  the harness grows into the first card, "Docs como contexto".
+ * in:  the harness grows into the first card.
  */
 export const genaiPratica = defineTransition<Harness>({
   out({ scene, layer, box }, tl) {

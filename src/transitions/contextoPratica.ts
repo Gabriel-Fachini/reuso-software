@@ -7,7 +7,8 @@ import { harnessInto } from "./genaiPratica";
  *
  * out: the staircase falls, the agent pops away; the MCP server empties and
  *      only its macha frame is left, which moves to the centre.
- * in:  that frame grows into the first card, "Docs como contexto" (harnessInto).
+ * in:  that frame grows into the middle card, "Agente com contexto": the
+ *      generation step of the flow (harnessInto).
  */
 export const contextoPratica = defineTransition({
   out({ scene, layer, box }, tl) {
@@ -29,5 +30,5 @@ export const contextoPratica = defineTransition({
     return { frame, fill };
   },
 
-  in: harnessInto(".pc-1"),
+  in: harnessInto(".pc-2"),
 });

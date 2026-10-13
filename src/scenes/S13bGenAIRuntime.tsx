@@ -222,9 +222,8 @@ export default function S13bGenAIRuntime() {
         </div>
 
         <div className="refs abs row" style={{ left: 530, top: 960, gap: 10 }}>
-          <span className="muted label" style={{ fontSize: 15 }}>EXEMPLOS</span>
+          <span className="muted label" style={{ fontSize: 15 }}>EXEMPLO</span>
           <span className="chip mono" style={{ fontSize: 14, padding: "4px 10px" }}>A2UI · Google</span>
-          <span className="chip mono" style={{ fontSize: 14, padding: "4px 10px" }}>MCP Apps</span>
         </div>
       </div>
 

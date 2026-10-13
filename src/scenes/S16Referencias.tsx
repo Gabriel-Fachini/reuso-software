@@ -39,7 +39,6 @@ const groups: { name: string; dot: string; refs: Ref[] }[] = [
       { who: "HOWARD, J.", title: "The /llms.txt file.", where: "llmstxt.org, 2024." },
       { who: "AGENTS.md.", title: "Formato aberto de instruções para agentes.", where: "agents.md" },
       { who: "GOOGLE.", title: "A2UI: Agent-to-User Interface.", where: "2025." },
-      { who: "MODEL CONTEXT PROTOCOL.", title: "MCP Apps.", where: "2025." },
     ],
   },
 ];
