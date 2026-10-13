@@ -14,8 +14,8 @@ import { solucaoGenai } from "./solucaoGenai";
 import { genaiReuso } from "./genaiReuso";
 import { reusoContexto } from "./reusoContexto";
 import { contextoPratica } from "./contextoPratica";
-import { praticaRuntime } from "./praticaRuntime";
-import { runtimeDemo } from "./runtimeDemo";
+import { praticaRiscos } from "./praticaRiscos";
+import { riscosDemo } from "./riscosDemo";
 import { demoFechamento } from "./demoFechamento";
 import { desafiosConclusao } from "./desafiosConclusao";
 
@@ -38,8 +38,8 @@ export const transitions: Record<string, Transition<any>> = {
   "genai>genai-reuso": genaiReuso,
   "genai-reuso>genai-contexto": reusoContexto,
   "genai-contexto>genai-pratica": contextoPratica,
-  "genai-pratica>genai-runtime": praticaRuntime,
-  "genai-runtime>demo": runtimeDemo,
+  "genai-pratica>genai-riscos": praticaRiscos,
+  "genai-riscos>demo": riscosDemo,
   "demo>desafios": demoFechamento,
   "desafios>conclusao": desafiosConclusao,
 };

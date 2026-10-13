@@ -35,7 +35,7 @@ npm run export:mp4   # vídeo de prévia em out/apresentacao.mp4
 | 14 | genai-reuso | 06 GenAI | `S12bGenAIReuso.tsx` | 2 passos | Gabriel |
 | 15 | genai-contexto | 06 GenAI | `S12cGenAIContexto.tsx` | fluxo | Gabriel |
 | 16 | genai-pratica | 06 GenAI | `S13GenAIPratica.tsx` | 2 passos | Gabriel |
-| 17 | genai-runtime | 06 GenAI | `S13bGenAIRuntime.tsx` | 3 passos | Gabriel |
+| 17 | genai-riscos | 06 GenAI | `S13bGenAIRiscos.tsx` | fluxo | Gabriel |
 | 18 | demo | 07 Demonstração | `S14Demo.tsx` (+ `demo.css`) | 5 passos | a definir |
 | 19 | desafios | 08 Desafios | `S15Desafios.tsx` | fluxo | a definir |
 | 20 | conclusao | 09 Conclusão | `S15bConclusao.tsx` | 2 passos | a definir |

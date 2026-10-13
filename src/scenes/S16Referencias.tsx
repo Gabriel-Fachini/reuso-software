@@ -38,7 +38,6 @@ const groups: { name: string; dot: string; refs: Ref[] }[] = [
       { who: "ANTHROPIC.", title: "Model Context Protocol.", where: "modelcontextprotocol.io" },
       { who: "HOWARD, J.", title: "The /llms.txt file.", where: "llmstxt.org, 2024." },
       { who: "AGENTS.md.", title: "Formato aberto de instruções para agentes.", where: "agents.md" },
-      { who: "GOOGLE.", title: "A2UI: Agent-to-User Interface.", where: "2025." },
     ],
   },
 ];

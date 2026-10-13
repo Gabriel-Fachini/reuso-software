@@ -8,7 +8,7 @@ import { praticaDemo } from "./praticaDemo";
  *      leaves; the block crouches and floods the stage.
  * in:  the green drains into the token the demo will change (praticaDemo.in).
  */
-export const runtimeDemo = defineTransition({
+export const riscosDemo = defineTransition({
   out({ scene, layer, box }, tl) {
     const $ = (s: string) => [...scene.querySelectorAll(s)];
     const mark = scene.querySelector(".c-end .mark");

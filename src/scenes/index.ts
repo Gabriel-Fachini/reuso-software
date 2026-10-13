@@ -15,7 +15,7 @@ import S12GenAI from "./S12GenAI";
 import S12bGenAIReuso from "./S12bGenAIReuso";
 import S12cGenAIContexto from "./S12cGenAIContexto";
 import S13GenAIPratica from "./S13GenAIPratica";
-import S13bGenAIRuntime from "./S13bGenAIRuntime";
+import S13bGenAIRiscos from "./S13bGenAIRiscos";
 import S14Demo from "./S14Demo";
 import S15Desafios from "./S15Desafios";
 import S15bConclusao from "./S15bConclusao";
@@ -41,7 +41,7 @@ export const scenes: SceneDef[] = [
   { id: "genai-reuso", block: "06 · Design System na era da GenAI", Component: S12bGenAIReuso, hold: 3200 },
   { id: "genai-contexto", block: "06 · Design System na era da GenAI", Component: S12cGenAIContexto, flow: true, hold: 3400 },
   { id: "genai-pratica", block: "06 · Design System na era da GenAI", Component: S13GenAIPratica, hold: 3200 },
-  { id: "genai-runtime", block: "06 · Design System na era da GenAI", Component: S13bGenAIRuntime, hold: 3400 },
+  { id: "genai-riscos", block: "06 · Design System na era da GenAI", Component: S13bGenAIRiscos, flow: true, hold: 3400 },
   { id: "demo", block: "07 · Demonstração", Component: S14Demo, hold: 2400 },
   { id: "desafios", block: "08 · Desafios e limitações", Component: S15Desafios, flow: true, hold: 3600 },
   { id: "conclusao", block: "09 · Conclusão", Component: S15bConclusao, hold: 3600 },
